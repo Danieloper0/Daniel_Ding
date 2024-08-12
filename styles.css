@@ -6,12 +6,12 @@
 
 body, html {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Courier New', monospace;
 }
 
 .hero-section {
     height: 100vh;
-    background-image: url('https://source.unsplash.com/1600x900/?nature');
+    background-image: url('https://unsplash.com/photos/a-group-of-white-circles-with-a-white-background-eJOq-eh5K_A');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -49,7 +49,7 @@ p {
 
 button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #de790d;
     border: none;
     color: white;
     font-size: 1rem;
@@ -58,5 +58,5 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #de790d;
 }
