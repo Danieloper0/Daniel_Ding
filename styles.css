@@ -75,6 +75,7 @@ button:hover {
     opacity: 0;
 }
 
+/* Back Button Styles */
 .back-button {
     position: fixed;
     top: 20px;
@@ -91,12 +92,17 @@ button:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease;
-    z-index: 1000;
-    opacity: 0; 
-    visibility: hidden;
-    visibility: visible;
+    z-index: 1000; /* Ensures it's on top */
+    opacity: 1; /* Ensure the button is visible */
+    visibility: visible; /* Ensure visibility */
 }
 
 .back-button.show {
     opacity: 1;
+    visibility: visible;
+}
+
+.back-button.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
