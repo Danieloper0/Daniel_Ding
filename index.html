@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero-section">
+    <!-- Back Button -->
+    <div class="back-button" id="backButton">
+        &#8592; <!-- Unicode for a left arrow -->
+    </div>
+
+    <div class="hero-section" id="heroSection">
         <div class="overlay"></div>
         <div class="content">
             <h1>Welcome to My Website</h1>
             <p>Your journey starts here.</p>
-            <button onclick="scrollDown()">Explore</button>
+            <button id="exploreButton">Explore</button>
         </div>
     </div>
     <script src="script.js"></script>
