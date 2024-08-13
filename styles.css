@@ -13,7 +13,7 @@ body, html {
 
 .hero-section {
     height: 100vh;
-    background-image: url('https://plus.unsplash.com/premium_photo-1674740443171-d40744570266?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('bit.ly/3SNqciG');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -71,4 +71,28 @@ button:hover {
 .hidden {
     transform: translateY(-100%);
     opacity: 0;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    opacity: 0; 
+}
+
+.back-button.show {
+    opacity: 1;
 }
