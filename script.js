@@ -1,8 +1,26 @@
-document.querySelector("button").addEventListener("click", function() {
-    const content = document.querySelector(".content");
-    content.classList.add("hidden");
+document.addEventListener("DOMContentLoaded", function() {
+    const backButton = document.getElementById("backButton");
+    const heroSection = document.getElementById("heroSection");
+
+    // Function to show or hide the back button
+    function handleBackButton() {
+        if (window.scrollY > 0) {
+            backButton.classList.add("show");
+        } else {
+            backButton.classList.remove("show");
+        }
+    }
+
     
-    setTimeout(() => {
-        document.body.style.backgroundColor = "#add8e6";
-    }, 500);
+    window.addEventListener("scroll", handleBackButton);
+
+    
+    backButton.addEventListener("click", function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        backButton.classList.remove("show"); 
+
+    handleBackButton();
 });
