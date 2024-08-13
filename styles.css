@@ -7,7 +7,8 @@
 body, html {
     height: 100%;
     font-family: 'Courier New', monospace;
-    transition: background-color 1s ease-in-out; /* Smooth background color transition */
+    transition: background-color 1s ease-in-out;
+    background-color: rgba(211, 211, 211, 0.5);
 }
 
 .hero-section {
@@ -31,16 +32,8 @@ body, html {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.content {
-    position: relative;
-    color: white;
-    z-index: 2;
-    transition: all 0.5s ease; /* Smooth slide-up transition */
-}
-
-.content.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
+.hidden + .overlay {
+    display: none;
 }
 
 h1 {
@@ -66,4 +59,16 @@ button {
 
 button:hover {
     background-color: #b05a09;
+}
+
+.content {
+    position: relative;
+    color: white;
+    z-index: 2;
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+}
+
+.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
 }
