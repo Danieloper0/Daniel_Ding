@@ -7,11 +7,12 @@
 body, html {
     height: 100%;
     font-family: 'Courier New', monospace;
+    transition: background-color 1s ease-in-out; /* Smooth background color transition */
 }
 
 .hero-section {
     height: 100vh;
-    background-image: url('https://unsplash.com/photos/a-group-of-white-circles-with-a-white-background-eJOq-eh5K_A');
+    background-image: url('https://plus.unsplash.com/premium_photo-1674740443171-d40744570266?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -34,6 +35,12 @@ body, html {
     position: relative;
     color: white;
     z-index: 2;
+    transition: all 0.5s ease; /* Smooth slide-up transition */
+}
+
+.content.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 h1 {
@@ -58,5 +65,5 @@ button {
 }
 
 button:hover {
-    background-color: #de790d;
+    background-color: #b05a09;
 }
