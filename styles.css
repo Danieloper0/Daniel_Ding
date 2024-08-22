@@ -1,9 +1,18 @@
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+    font-family: 'Courier New', monospace;
+    transition: background-color 1s ease-in-out;
+    background-color: transparent; /* Ensure background color doesn’t override the image */
+}
+
+/* Hero Section */
 .hero-section {
     height: 100vh;
     background-image: url('https://plus.unsplash.com/premium_photo-1674740443171-d40744570266?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -17,14 +26,7 @@
     z-index: 1; /* Make sure it stays behind the content */
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Courier New', monospace;
-    transition: background-color 1s ease-in-out;
-    background-color: transparent; /* Ensure background color doesn’t override the image */
-}
-
-
+/* Overlay */
 .overlay {
     position: absolute;
     top: 0;
@@ -34,8 +36,12 @@ body, html {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hidden + .overlay {
-    display: none;
+/* Content inside Hero Section */
+.content {
+    position: relative;
+    color: white;
+    z-index: 2;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 h1 {
@@ -63,18 +69,6 @@ button:hover {
     background-color: #b05a09;
 }
 
-.content {
-    position: relative;
-    color: white;
-    z-index: 2;
-    transition: transform 0.5s ease, opacity 0.5s ease; 
-}
-
-.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
 /* Back Button Styles */
 .back-button {
     position: fixed;
@@ -93,8 +87,8 @@ button:hover {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease;
     z-index: 1000; /* Ensures it's on top */
-    opacity: 1; /* Ensure the button is visible */
-    visibility: visible; /* Ensure visibility */
+    opacity: 1;
+    visibility: visible;
 }
 
 .back-button.show {
