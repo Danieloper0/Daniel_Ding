@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const backButton = document.getElementById("backButton");
+    const exploreButton = document.getElementById("exploreButton");
 
-    // Show the back button on page load if not on the first page
+    // Initial check for back button visibility
     if (window.scrollY === 0) {
         backButton.classList.add("hidden");
     }
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Show the back button when not on the first page
+    // Listen for scroll events
     window.addEventListener("scroll", handleBackButton);
 
     // Scroll back to the top when the back button is clicked
@@ -26,7 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
             top: 0,
             behavior: "smooth"
         });
-        backButton.classList.add("hidden"); // Hide the button after returning to the first page
+        backButton.classList.add("hidden");
+    });
+
+    // Handle the explore button click (you can define further behavior here)
+    exploreButton.addEventListener("click", function() {
+        console.log("Explore button clicked");
+        // Add any further action here for explore button, e.g., scrolling to a section
     });
 });
-
