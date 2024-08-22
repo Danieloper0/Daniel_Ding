@@ -1,15 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const backButton = document.getElementById("backButton");
-    const exploreButton = document.getElementById("exploreButton");
 
-    // Ensure the back button is hidden initially if at the top of the page
-    if (window.scrollY === 0) {
-        backButton.classList.add("hidden");
-    }
-
-    // Function to show or hide the back button
+    // Function to show or hide the back button based on scroll position
     function handleBackButton() {
-        if (window.scrollY > 0) {
+        if (window.scrollY > 100) { // Trigger after scrolling 100px or more
             backButton.classList.remove("hidden");
             backButton.classList.add("show");
         } else {
@@ -18,7 +12,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Listen for scroll events
+    // Check initial scroll position
+    handleBackButton();  // Ensure correct visibility on page load
+
+    // Listen for scroll events to toggle back button visibility
     window.addEventListener("scroll", handleBackButton);
 
     // Scroll back to the top when the back button is clicked
@@ -27,12 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
             top: 0,
             behavior: "smooth"
         });
-        backButton.classList.add("hidden");
-    });
-
-    // Handle the explore button click
-    exploreButton.addEventListener("click", function() {
-        console.log("Explore button clicked");
-        // Add any further action here for explore button, e.g., scrolling to a section
+        backButton.classList.add("hidden"); // Hide button after scrolling to top
     });
 });
