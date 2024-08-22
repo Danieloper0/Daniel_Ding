@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const backButton = document.getElementById("backButton");
     const exploreButton = document.getElementById("exploreButton");
 
-    // Initial check for back button visibility
+    // Ensure the back button is hidden initially if at the top of the page
     if (window.scrollY === 0) {
         backButton.classList.add("hidden");
     }
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         backButton.classList.add("hidden");
     });
 
-    // Handle the explore button click (you can define further behavior here)
+    // Handle the explore button click
     exploreButton.addEventListener("click", function() {
         console.log("Explore button clicked");
         // Add any further action here for explore button, e.g., scrolling to a section
