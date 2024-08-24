@@ -1,4 +1,4 @@
-/* Basic styling for the page */
+/* Global Styles */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header styling */
+/* Header Styling */
 header {
     background-color: #000;
     color: #fff;
@@ -17,7 +17,7 @@ header {
     font-weight: 600;
 }
 
-/* Navigation styling */
+/* Navigation Styling */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -30,23 +30,23 @@ nav a {
     font-weight: 600;
 }
 
-/* Container styling */
+/* Container Styling */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Hero section styling */
+/* Hero Section Styling */
 .hero {
     text-align: center;
     padding: 50px 0;
     background-color: #eaeaea;
     border-radius: 10px;
     position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Hero text styling */
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
@@ -57,7 +57,7 @@ nav a {
     margin-bottom: 40px;
 }
 
-/* Floating image animation */
+/* Floating Image Animation */
 .floating-image {
     position: absolute;
     top: 150%;
@@ -67,7 +67,6 @@ nav a {
     animation: floatUp 3s ease-in-out forwards;
 }
 
-/* Floating animation keyframes */
 @keyframes floatUp {
     0% {
         top: 150%;
@@ -82,7 +81,7 @@ nav a {
     }
 }
 
-/* Footer styling */
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 20px 0;
