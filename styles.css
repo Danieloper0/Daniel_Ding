@@ -9,7 +9,7 @@ body {
 
 /* Header Styling - Dark Mode */
 header {
-    background-color: #222; /* Darker background for the header */
+    background-color: #111; /* Set header background to a very dark gray */
     color: #fff; /* White text */
     padding: 20px;
     text-align: center;
@@ -41,7 +41,7 @@ nav a {
 .hero {
     text-align: center;
     padding: 50px 0;
-    background-color: #333; /* Dark gray background */
+    background-color: #222; /* Dark gray background */
     border-radius: 10px;
     position: relative;
     box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
@@ -50,14 +50,16 @@ nav a {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
+    color: #fff; /* White text */
 }
 
 .hero p {
     font-size: 18px;
     margin-bottom: 40px;
+    color: #fff; /* White text */
 }
 
-/* Floating Image Animation */
+/* Floating Image Styling - Dark Mode */
 .floating-image {
     position: absolute;
     top: 150%;
@@ -71,9 +73,24 @@ nav a {
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #222; /* Dark background */
+    background-color: #111; /* Dark background for footer */
     color: #fff; /* White text */
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+/* Floating Image Animation */
+@keyframes floatUp {
+    0% {
+        top: 150%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: 10%;
+        opacity: 1;
+    }
 }
