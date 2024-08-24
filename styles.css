@@ -1,23 +1,4 @@
-/* Global Styles - Dark Mode */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000; /* Set background to black */
-    color: #fff; /* Set text color to white */
-    overflow-x: hidden;
-}
-
-/* Header Styling - Dark Mode */
-header {
-    background-color: #111; /* Set header background to a very dark gray */
-    color: #fff; /* White text */
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-/* Navigation Styling - Dark Mode */
+/* Navigation Styling with Hover Animation */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -28,69 +9,36 @@ nav a {
     text-decoration: none;
     color: #fff; /* White text */
     font-weight: 600;
-}
-
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Hero Section Styling - Dark Mode */
-.hero {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #222; /* Dark gray background */
-    border-radius: 10px;
     position: relative;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #fff; /* White text */
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #fff; /* White text */
-}
-
-/* Floating Image Styling - Dark Mode */
-.floating-image {
+nav a::after {
+    content: '';
     position: absolute;
-    top: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: floatUp 3s ease-in-out forwards;
-}
-
-/* Footer Styling - Dark Mode */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #111; /* Dark background for footer */
-    color: #fff; /* White text */
-    position: fixed;
-    width: 100%;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    left: 0;
     bottom: 0;
+    transition: width 0.3s ease-in-out;
 }
 
-/* Floating Image Animation */
-@keyframes floatUp {
-    0% {
-        top: 150%;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        top: 10%;
-        opacity: 1;
-    }
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: orange; /* Optional: Change text color to orange on hover */
+}
+
+nav a:active::after,
+nav a:focus::after {
+    width: 100%;
+}
+
+/* Example of active link styling */
+nav a.active::after {
+    width: 100%;
 }
