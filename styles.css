@@ -1,23 +1,23 @@
-/* Global Styles */
+/* Global Styles - Dark Mode */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #000; /* Set background to black */
+    color: #fff; /* Set text color to white */
     overflow-x: hidden;
 }
 
-/* Header Styling */
+/* Header Styling - Dark Mode */
 header {
-    background-color: #000;
-    color: #fff;
+    background-color: #222; /* Darker background for the header */
+    color: #fff; /* White text */
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
 }
 
-/* Navigation Styling */
+/* Navigation Styling - Dark Mode */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -26,7 +26,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #333;
+    color: #fff; /* White text */
     font-weight: 600;
 }
 
@@ -37,14 +37,14 @@ nav a {
     padding: 20px;
 }
 
-/* Hero Section Styling */
+/* Hero Section Styling - Dark Mode */
 .hero {
     text-align: center;
     padding: 50px 0;
-    background-color: #eaeaea;
+    background-color: #333; /* Dark gray background */
     border-radius: 10px;
     position: relative;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
 }
 
 .hero h1 {
@@ -67,26 +67,12 @@ nav a {
     animation: floatUp 3s ease-in-out forwards;
 }
 
-@keyframes floatUp {
-    0% {
-        top: 150%;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        top: 10%;
-        opacity: 1;
-    }
-}
-
-/* Footer Styling */
+/* Footer Styling - Dark Mode */
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #000;
-    color: #fff;
+    background-color: #222; /* Dark background */
+    color: #fff; /* White text */
     position: fixed;
     width: 100%;
     bottom: 0;
