@@ -1,9 +1,13 @@
-/* Global Styles - Dark Mode */
+/* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
     font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
-    background-color: #000; /* Set background to black */
     color: #fff; /* Set text color to white */
+    background-color: #000; /* Set fallback background color */
+    background-image: radial-gradient(circle, #555 1px, transparent 1px);
+    background-size: 20px 20px; /* Size of the dots and grid */
+    background-attachment: fixed; /* Background stays fixed when scrolling */
+    background-position: center; /* Center the background */
     overflow-x: hidden;
 }
 
@@ -62,6 +66,7 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background to make the content pop against the dots */
 }
 
 /* Hero Section Styling - Dark Mode */
