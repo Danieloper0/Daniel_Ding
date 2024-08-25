@@ -1,9 +1,10 @@
-document.getElementById('menu-toggle').addEventListener('click', function () {
-    this.classList.toggle('open');
-    document.getElementById('slide-menu').classList.toggle('open');
-});
+// JavaScript for the mobile menu toggle (optional)
+document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.querySelector('.menu-button');
+    const nav = document.querySelector('nav');
 
-document.getElementById('title').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent opening in a new tab
-    window.location.href = 'index.html';
+    menuButton.addEventListener('click', function () {
+        nav.classList.toggle('active');
+        menuButton.classList.toggle('active');
+    });
 });
