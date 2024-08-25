@@ -1,134 +1,133 @@
-/* Global Styles - Dark Mode with Dot Paper Background */
-body {
+/* General Reset */
+* {
     margin: 0;
-    font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
-    color: #fff; /* Set text color to white */
-    background-color: #000; /* Set fallback background color */
-    background-image: radial-gradient(circle, #555 1px, transparent 1px);
-    background-size: 20px 20px; /* Size of the dots and grid */
-    background-attachment: fixed; /* Background stays fixed when scrolling */
-    background-position: center; /* Center the background */
-    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header Styling - Dark Mode */
+/* Body Styling */
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-image: url('dot-grid.png'); /* Ensure this image is added */
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Header Styling */
 header {
-    background-color: #111; /* Set header background to a very dark gray */
-    color: #FFA500; /* Light orange color for the header text */
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
 }
 
-header a {
-    color: #FFA500; /* Light orange color for the link */
+h1 {
+    font-size: 2rem;
+}
+
+h1 a {
     text-decoration: none;
+    color: orange;
 }
 
-/* Navigation Styling with Hover Animation */
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
+/* Navigation Styling */
 nav a {
-    margin: 0 15px;
+    color: white;
     text-decoration: none;
-    color: #fff; /* White text */
-    font-weight: 600;
+    margin-left: 20px;
     position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: orange;
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease-in-out;
 }
 
 nav a:hover::after {
+    content: "";
+    display: block;
     width: 100%;
-}
-
-nav a:hover {
-    color: orange; /* Optional: Change text color to orange on hover */
-}
-
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background to make the content pop against the dots */
-}
-
-/* Hero Section Styling - Dark Mode */
-.hero {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #222; /* Dark gray background */
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
-}
-
-/* Change Welcome Message Font to Courier New */
-.hero h1,
-.hero p {
-    font-family: 'Courier New', monospace; /* Change to Courier New */
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #fff; /* White text */
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #fff; /* White text */
-}
-
-/* Floating Image Styling - Dark Mode */
-.floating-image {
+    height: 2px;
+    background-color: orange;
     position: absolute;
-    top: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: floatUp 3s ease-in-out forwards;
+    left: 0;
+    bottom: -5px;
+    animation: slide-in 0.3s forwards;
 }
 
-/* Footer Styling - Dark Mode */
+nav a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Content Styling */
+#content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: 'Courier New', monospace;
+}
+
+h3 {
+    color: red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.floating-image {
+    animation: float 5s ease-in-out infinite;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: #111; /* Dark background for footer */
-    color: #fff; /* White text */
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 20px;
+    background-color: #333;
+    color: white;
 }
 
-/* Floating Image Animation */
-@keyframes floatUp {
+/* Animations */
+@keyframes float {
     0% {
-        top: 150%;
-        opacity: 0;
+        transform: translateY(0);
     }
     50% {
-        opacity: 1;
+        transform: translateY(-10px);
     }
     100% {
-        top: 10%;
-        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
     }
 }
