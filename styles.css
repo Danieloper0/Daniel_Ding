@@ -7,10 +7,10 @@
 
 /* Body Styling */
 body {
-    background-color: black;
-    color: white;
+    background-color: #121212; /* A slightly lighter black for better contrast */
+    color: #E0E0E0; /* Light gray for readability */
     font-family: 'Trebuchet MS', sans-serif;
-    background-image: url('dot-grid.png'); /* Ensure this image is added */
+    background-image: url('dot-grid.png');
     background-attachment: fixed;
     background-size: cover;
 }
@@ -20,7 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #333;
 }
 
@@ -35,10 +35,11 @@ h1 a {
 
 /* Navigation Styling */
 nav a {
-    color: white;
+    color: #E0E0E0;
     text-decoration: none;
     margin-left: 20px;
     position: relative;
+    font-weight: bold;
 }
 
 nav a:hover::after {
@@ -73,21 +74,26 @@ nav a:hover::after {
 /* Content Styling */
 #content {
     padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1000px;
+    margin: 30px auto; /* Center the content */
+    background-color: #1E1E1E; /* Slight contrast for content area */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    color: #FFD700; /* Gold color */
 }
 
 .subtitle {
     font-family: 'Courier New', monospace;
+    color: #B0B0B0;
 }
 
 h3 {
-    color: red;
+    color: #FF4500; /* OrangeRed color */
     text-decoration: underline;
     font-weight: bold;
 }
@@ -100,6 +106,8 @@ p {
     animation: float 5s ease-in-out infinite;
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Space between image and text */
 }
 
 /* Footer Styling */
@@ -108,6 +116,7 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
+    margin-top: 20px;
 }
 
 /* Animations */
