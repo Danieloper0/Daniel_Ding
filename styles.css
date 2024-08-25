@@ -1,20 +1,20 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
-    color: #fff; /* Set text color to white */
-    background-color: #000; /* Set fallback background color */
+    font-family: 'Trebuchet MS', sans-serif; 
+    color: #fff; 
+    background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
-    background-size: 20px 20px; /* Size of the dots and grid */
-    background-attachment: fixed; /* Background stays fixed when scrolling */
-    background-position: center; /* Center the background */
+    background-size: 20px 20px;
+    background-attachment: fixed; 
+    background-position: center; 
     overflow-x: hidden;
 }
 
 /* Header Styling - Dark Mode */
 header {
-    background-color: #111; /* Set header background to a very dark gray */
-    color: #FFA500; /* Light orange color for the header text */
+    background-color: #111; 
+    color: #FFA500; 
     padding: 20px;
     text-align: center;
     font-size: 24px;
@@ -22,11 +22,11 @@ header {
 }
 
 header a {
-    color: #FFA500; /* Light orange color for the link */
+    color: #FFA500; 
     text-decoration: none;
 }
 
-/* Navigation Styling with Hover Animation */
+/* Navigation Styling */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -35,7 +35,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff; /* White text */
+    color: #fff; 
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -58,7 +58,7 @@ nav a:hover::after {
 }
 
 nav a:hover {
-    color: orange; /* Optional: Change text color to orange on hover */
+    color: orange;
 }
 
 /* Container Styling */
@@ -66,69 +66,14 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background to make the content pop against the dots */
+    background-color: rgba(0, 0, 0, 0.8); 
+    border-radius: 10px;
 }
 
-/* Hero Section Styling - Dark Mode */
+/* Hero Section Styling */
 .hero {
     text-align: center;
     padding: 50px 0;
-    background-color: #222; /* Dark gray background */
+    background-color: #222; 
     border-radius: 10px;
-    position: relative;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
-}
-
-/* Change Welcome Message Font to Courier New */
-.hero h1,
-.hero p {
-    font-family: 'Courier New', monospace; /* Change to Courier New */
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #fff; /* White text */
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #fff; /* White text */
-}
-
-/* Floating Image Styling - Dark Mode */
-.floating-image {
-    position: absolute;
-    top: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: floatUp 3s ease-in-out forwards;
-}
-
-/* Footer Styling - Dark Mode */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #111; /* Dark background for footer */
-    color: #fff; /* White text */
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-/* Floating Image Animation */
-@keyframes floatUp {
-    0% {
-        top: 150%;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        top: 10%;
-        opacity: 1;
-    }
-}
+    box-shadow: 0px 4px 15px rgba(255, 255,
