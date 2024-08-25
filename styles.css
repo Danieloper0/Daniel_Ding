@@ -1,115 +1,177 @@
-/* Global Styles - Dark Mode with Dot Paper Background */
-body {
+/* General Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: black;
+    color: white;
     font-family: 'Trebuchet MS', sans-serif;
-    color: #fff;
-    background-color: #000;
-    background-image: radial-gradient(circle, #555 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-image: url('dot-grid.png'); /* Ensure this image is added */
     background-attachment: fixed;
-    background-position: center;
-    overflow-x: hidden;
+    background-size: cover;
 }
 
 /* Header Styling */
 header {
-    background-color: #111;
-    color: #FFA500;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    position: relative;
-}
-
-header a {
-    color: #FFA500;
-    text-decoration: none;
-}
-
-header a:hover {
-    color: #FF8C00;
-}
-
-/* Menu Button Styling */
-.menu-button {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 30px;
-    cursor: pointer;
-}
-
-.menu-button .line {
-    background-color: #FFA500;
-    height: 3px;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-/* Slide-In Menu Styling */
-.menu {
-    position: fixed;
-    top: 0;
-    left: -300px; /* Start off-screen */
-    width: 300px;
-    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
     background-color: #333;
-    padding-top: 60px;
-    transition: all 0.3s ease;
-    z-index: 1000;
 }
 
-.menu nav a {
-    display: block;
-    color: #fff;
-    padding: 15px;
-    text-decoration: none;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.menu nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: orange;
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-.menu nav a:hover::after {
-    width: 100%;
-}
-
-.menu nav a:hover {
+h1 {
+    font-size: 2rem;
     color: orange;
+    font-family: 'Courier New', monospace;
 }
 
-/* Tilt Animation for Menu Button */
-.menu-button.tilt .line:nth-child(1) {
-    transform: rotate(90deg);
+/* Menu Toggle */
+#menu-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
 }
 
-.menu-button.tilt .line:nth-child(2) {
+#menu-toggle .line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+#menu-toggle.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle.open .line:nth-child(2) {
     opacity: 0;
 }
 
-.menu-button.tilt .line:nth-child(3) {
-    transform: rotate(90deg);
+#menu-toggle.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Header Text for Portfolio, Contact, About Me */
-.container h2 {
+/* Navigation Styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: orange;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: orange;
+}
+
+#slide-menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: grey;
+    transition: left 0.3s;
+}
+
+#slide-menu ul {
+    list-style: none;
+    padding: 20px;
+}
+
+#slide-menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+#slide-menu ul li a:hover {
+    color: orange;
+}
+
+#slide-menu.open {
+    left: 0;
+}
+
+/* Content Styling */
+#content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: 'Courier New', monospace;
+}
+
+h3 {
+    color: red;
     text-decoration: underline;
     font-weight: bold;
-    color: red;
 }
 
-/* Active Menu State */
-.menu.active {
-    left: 0; /* Slide in */
+p {
+    margin-bottom: 20px;
+}
+
+.floating-image {
+    animation: float 5s ease-in-out infinite;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
