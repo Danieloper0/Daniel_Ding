@@ -1,94 +1,134 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
+/* Global Styles - Dark Mode with Dot Paper Background */
 body {
-    background-color: black;
-    color: white;
-    font-family: 'Trebuchet MS', sans-serif;
-    background-image: url('dot-grid.png'); /* Ensure this image is added */
-    background-attachment: fixed;
-    background-size: cover;
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
+    color: #fff; /* Set text color to white */
+    background-color: #000; /* Set fallback background color */
+    background-image: radial-gradient(circle, #555 1px, transparent 1px);
+    background-size: 20px 20px; /* Size of the dots and grid */
+    background-attachment: fixed; /* Background stays fixed when scrolling */
+    background-position: center; /* Center the background */
+    overflow-x: hidden;
 }
 
-/* Header Styling */
+/* Header Styling - Dark Mode */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
+    background-color: #111; /* Set header background to a very dark gray */
+    color: #FFA500; /* Light orange color for the header text */
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
 }
 
-h1 {
-    font-size: 2rem;
-    color: orange;
-}
-
-/* Navigation Styling */
-nav a {
-    color: white;
+header a {
+    color: #FFA500; /* Light orange color for the link */
     text-decoration: none;
-    margin-left: 20px;
+}
+
+/* Navigation Styling with Hover Animation */
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff; /* White text */
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 nav a:hover {
-    color: orange;
+    color: orange; /* Optional: Change text color to orange on hover */
 }
 
-/* Content Styling */
-#content {
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background to make the content pop against the dots */
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+/* Hero Section Styling - Dark Mode */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #222; /* Dark gray background */
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
 }
 
-.subtitle {
-    font-family: 'Courier New', monospace;
+/* Change Welcome Message Font to Courier New */
+.hero h1,
+.hero p {
+    font-family: 'Courier New', monospace; /* Change to Courier New */
 }
 
-h3 {
-    color: red;
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-p {
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 20px;
+    color: #fff; /* White text */
 }
 
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #fff; /* White text */
+}
+
+/* Floating Image Styling - Dark Mode */
 .floating-image {
-    animation: float 5s ease-in-out infinite;
-    max-width: 100%;
-    height: auto;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: floatUp 3s ease-in-out forwards;
 }
 
-/* Footer Styling */
+/* Footer Styling - Dark Mode */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
+    padding: 20px 0;
+    background-color: #111; /* Dark background for footer */
+    color: #fff; /* White text */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
-/* Animations */
-@keyframes float {
+/* Floating Image Animation */
+@keyframes floatUp {
     0% {
-        transform: translateY(0);
+        top: 150%;
+        opacity: 0;
     }
     50% {
-        transform: translateY(-10px);
+        opacity: 1;
     }
     100% {
-        transform: translateY(0);
+        top: 10%;
+        opacity: 1;
     }
 }
