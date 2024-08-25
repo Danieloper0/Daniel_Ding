@@ -1,8 +1,7 @@
-
 /* Global Styles - Dark Mode */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
     background-color: #000; /* Set background to black */
     color: #fff; /* Set text color to white */
     overflow-x: hidden;
@@ -11,11 +10,16 @@ body {
 /* Header Styling - Dark Mode */
 header {
     background-color: #111; /* Set header background to a very dark gray */
-    color: #fff; /* White text */
+    color: #FFA500; /* Light orange color for the header text */
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
+}
+
+header a {
+    color: #FFA500; /* Light orange color for the link */
+    text-decoration: none;
 }
 
 /* Navigation Styling with Hover Animation */
@@ -53,17 +57,6 @@ nav a:hover {
     color: orange; /* Optional: Change text color to orange on hover */
 }
 
-nav a:active::after,
-nav a:focus::after {
-    width: 100%;
-}
-
-/* Example of active link styling */
-nav a.active::after {
-    width: 100%;
-}
-
-
 /* Container Styling */
 .container {
     max-width: 900px;
@@ -79,6 +72,12 @@ nav a.active::after {
     border-radius: 10px;
     position: relative;
     box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
+}
+
+/* Change Welcome Message Font to Courier New */
+.hero h1,
+.hero p {
+    font-family: 'Courier New', monospace; /* Change to Courier New */
 }
 
 .hero h1 {
