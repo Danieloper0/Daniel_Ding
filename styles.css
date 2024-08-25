@@ -1,48 +1,76 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Trebuchet MS', sans-serif; /* Change to Trebuchet MS */
-    color: #fff; /* Set text color to white */
-    background-color: #000; /* Set fallback background color */
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #fff;
+    background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
-    background-size: 20px 20px; /* Size of the dots and grid */
-    background-attachment: fixed; /* Background stays fixed when scrolling */
-    background-position: center; /* Center the background */
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    background-position: center;
     overflow-x: hidden;
 }
 
-/* Header Styling - Dark Mode */
+/* Header Styling */
 header {
-    background-color: #111; /* Set header background to a very dark gray */
-    color: #FFA500; /* Light orange color for the header text */
+    background-color: #111;
+    color: #FFA500;
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
+    position: relative;
 }
 
 header a {
-    color: #FFA500; /* Light orange color for the link */
+    color: #FFA500;
     text-decoration: none;
 }
 
-/* Navigation Styling with Hover Animation */
-nav {
-    text-align: center;
-    margin: 20px 0;
+header a:hover {
+    color: #FF8C00;
 }
 
-nav a {
-    margin: 0 15px;
+/* Menu Button Styling */
+.menu-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-button .line {
+    background-color: #FFA500;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Slide-In Menu Styling */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 60px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.menu nav a {
+    display: block;
+    color: #fff;
+    padding: 15px;
     text-decoration: none;
-    color: #fff; /* White text */
     font-weight: 600;
     position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
-nav a::after {
+.menu nav a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -53,82 +81,35 @@ nav a::after {
     transition: width 0.3s ease-in-out;
 }
 
-nav a:hover::after {
+.menu nav a:hover::after {
     width: 100%;
 }
 
-nav a:hover {
-    color: orange; /* Optional: Change text color to orange on hover */
+.menu nav a:hover {
+    color: orange;
 }
 
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background to make the content pop against the dots */
+/* Tilt Animation for Menu Button */
+.menu-button.tilt .line:nth-child(1) {
+    transform: rotate(90deg);
 }
 
-/* Hero Section Styling - Dark Mode */
-.hero {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #222; /* Dark gray background */
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Light shadow */
-}
-
-/* Change Welcome Message Font to Courier New */
-.hero h1,
-.hero p {
-    font-family: 'Courier New', monospace; /* Change to Courier New */
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #fff; /* White text */
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    color: #fff; /* White text */
-}
-
-/* Floating Image Styling - Dark Mode */
-.floating-image {
-    position: absolute;
-    top: 150%;
-    left: 50%;
-    transform: translateX(-50%);
+.menu-button.tilt .line:nth-child(2) {
     opacity: 0;
-    animation: floatUp 3s ease-in-out forwards;
 }
 
-/* Footer Styling - Dark Mode */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #111; /* Dark background for footer */
-    color: #fff; /* White text */
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.menu-button.tilt .line:nth-child(3) {
+    transform: rotate(90deg);
 }
 
-/* Floating Image Animation */
-@keyframes floatUp {
-    0% {
-        top: 150%;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        top: 10%;
-        opacity: 1;
-    }
+/* Header Text for Portfolio, Contact, About Me */
+.container h2 {
+    text-decoration: underline;
+    font-weight: bold;
+    color: red;
+}
+
+/* Active Menu State */
+.menu.active {
+    left: 0; /* Slide in */
 }
