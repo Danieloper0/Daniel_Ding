@@ -18,7 +18,7 @@ body {
 
 /* Header Styling - Dark Mode */
 header {
-    background-color: #000; /* Changed to match background color */
+    background-color: black; /* Changed to match background color */
     color: #FFA500; 
     padding: 20px;
     text-align: center;
@@ -88,11 +88,11 @@ nav a:hover {
 
 /* Footer styling */
 footer {
-    text-align: center;
-    padding: 1em 0;
-    background-color: #333;
+    background-color: #222;
     color: #fff;
-    position: relative;
-    width: 100%;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
     bottom: 0;
+    width: 100%;
 }
