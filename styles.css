@@ -1,7 +1,7 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Trebuchet MS', sans-serif; 
+    font-family: 'Pathway Extreme', sans-serif; /* Changed to Pathway Extreme */
     color: #fff; 
     background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -16,23 +16,25 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); 
-    border-radius: 10px;
-    flex: 1; /* This makes sure the content pushes the footer down */
-}
-
 /* Header Styling - Dark Mode */
 header {
-    background-color: #111; 
+    background-color: #000; /* Changed to match background color */
     color: #FFA500; 
     padding: 20px;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
+    font-family: 'Didot', serif; /* Updated to Didot for the header */
+}
+
+/* Pathway Extreme custom class example */
+.pathway-extreme-custom {
+  font-family: "Pathway Extreme", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Example weight */
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 header a {
