@@ -1,44 +1,32 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif; /* Changed to Pathway Extreme */
-    color: #fff; 
+    font-family: 'Pathway Extreme', sans-serif;
+    color: #fff;
     background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
-    background-attachment: fixed; 
-    background-position: center; 
+    background-attachment: fixed;
+    background-position: center;
     overflow-x: hidden;
-
-    /* Ensure the footer stays at the bottom */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
 }
 
-/* Header Styling - Dark Mode */
+/* Header Styling */
 header {
-    background-color: black; /* Changed to match background color */
-    color: #FFA500; 
+    background-color: #111;
+    color: #FFA500;
     padding: 20px;
     text-align: center;
+    font-family: 'Didot', serif; /* Set header font to Didot */
     font-size: 24px;
     font-weight: 600;
-    font-family: 'Didot', serif; /* Updated to Didot for the header */
-}
-
-/* Pathway Extreme custom class example */
-.pathway-extreme-custom {
-  font-family: "Pathway Extreme", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700; /* Example weight */
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }
 
 header a {
-    color: #FFA500; 
+    color: #FFA500;
     text-decoration: none;
 }
 
@@ -51,7 +39,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff; 
+    color: #fff;
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -77,22 +65,53 @@ nav a:hover {
     color: orange;
 }
 
-/* Hero Section Styling */
-.hero {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #222; 
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
-/* Footer styling */
+/* Hero Section Styling */
+.hero {
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Font Style for Hero Section Title */
+.hero h1 {
+    font-family: 'Didot', serif; /* Set font to Didot */
+    font-size: 36px; /* Adjust size if needed */
+    color: #fff;
+    text-align: center;
+}
+
+/* Section Styling */
+section {
+    text-align: center;
+}
+
+/* Footer Styling */
 footer {
     background-color: #222;
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
+    margin-top: auto;
+}
+
+/* Ensure Main Content Takes Up Remaining Space */
+main {
+    flex: 1;
 }
