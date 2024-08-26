@@ -9,6 +9,20 @@ body {
     background-attachment: fixed; 
     background-position: center; 
     overflow-x: hidden;
+
+    /* Ensure the footer stays at the bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    border-radius: 10px;
+    flex: 1; /* This makes sure the content pushes the footer down */
 }
 
 /* Header Styling - Dark Mode */
@@ -61,19 +75,22 @@ nav a:hover {
     color: orange;
 }
 
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); 
-    border-radius: 10px;
-}
-
 /* Hero Section Styling */
 .hero {
     text-align: center;
     padding: 50px 0;
     background-color: #222; 
     border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(255, 255,
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
