@@ -70,11 +70,18 @@ nav a:hover {
     color: orange;
 }
 
+/* Text and Line Wrapper */
+.text-line-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
 /* Hero Section Styling */
 .hero {
     text-align: center;
     padding: 50px 0;
-    position: relative;
     background-color: transparent;
 }
 
@@ -82,20 +89,21 @@ nav a:hover {
     font-family: 'Didot', serif;
     font-size: 50px;
     margin-bottom: 10px;
-    position: relative;
-    display: inline-block;
 }
 
-.hero .underline {
-    display: inline-block;
+.hero p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* Red Sliding Line */
+.underline {
     width: 0;
     height: 4px;
     background-color: red;
     margin-top: 5px; /* Space between text and line */
     animation: slide 1s forwards;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
 }
 
 @keyframes slide {
@@ -119,18 +127,8 @@ nav a:hover {
 
 /* About, Portfolio, Contact Section Styling */
 .section h2 {
+    font-family: 'Didot', serif;
     position: relative;
-    display: inline-block;
-}
-
-.section .underline {
-    display: inline-block;
-    width: 0;
-    animation: slide 1s forwards;
-    position: absolute;
-    bottom: -10px;
-    height: 4px;
-    background-color: red;
 }
 
 .section {
@@ -147,6 +145,4 @@ footer {
     color: #fff;
     font-size: 14px;
     position: relative;
-    width: 100%;
-    margin-top: auto;
-}
+   
