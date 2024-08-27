@@ -91,10 +91,26 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-.hero p {
-    font-family: 'Pathway Extreme', sans-serif;
-    font-size: 20px;
-    margin-top: 0;
+/* Typing Animation */
+.typing-animation {
+    font-family: 'Didot', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #FFA500; /* Cursor effect */
+    width: 0;
+    animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #FFA500; }
 }
 
 /* Red Sliding Line */
@@ -145,4 +161,6 @@ footer {
     color: #fff;
     font-size: 14px;
     position: relative;
-   
+    width: 100%;
+    margin-top: auto;
+}
