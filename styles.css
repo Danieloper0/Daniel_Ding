@@ -8,7 +8,14 @@ body {
     background-size: 20px 20px;
     background-attachment: fixed; 
     background-position: center; 
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Content Wrapper */
+.content {
+    flex: 1;
 }
 
 /* Header Styling - Dark Mode */
@@ -67,7 +74,8 @@ nav a:hover {
     padding: 50px 0;
     border-radius: 10px;
     box-shadow: none;
-    background-color: transparent; /* Remove the grey box */
+    background-color: transparent;
+    position: relative;
 }
 
 .hero h1 {
@@ -80,6 +88,24 @@ nav a:hover {
     font-family: 'Pathway Extreme', sans-serif;
     font-size: 20px;
     margin-top: 0;
+}
+
+/* Red Sliding Line */
+.underline {
+    width: 0%;
+    height: 4px;
+    background-color: red;
+    margin: 0 auto;
+    animation: slide 1s forwards;
+}
+
+@keyframes slide {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 50%;
+    }
 }
 
 /* Container Styling */
@@ -95,7 +121,7 @@ nav a:hover {
 .section {
     text-align: center;
     padding: 50px 20px; 
-    margin-bottom: 50px; /* Add spacing between content and footer */
+    margin-bottom: 50px;
 }
 
 /* Footer Styling */
@@ -104,8 +130,8 @@ footer {
     padding: 20px 0;
     background-color: #111; 
     color: #fff;
-    margin-top: 50px;
     font-size: 14px;
     position: relative;
     width: 100%;
+    bottom: 0;
 }
