@@ -1,13 +1,13 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif; 
-    color: #fff; 
+    font-family: 'Pathway Extreme', sans-serif;
+    color: #fff;
     background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
-    background-attachment: fixed; 
-    background-position: center; 
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,12 +16,14 @@ body {
 /* Content Wrapper */
 .content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Header Styling - Dark Mode */
+/* Header Styling */
 header {
-    background-color: #111; 
-    color: #FFA500; 
+    background-color: #111;
+    color: #FFA500;
     padding: 10px 0;
     text-align: center;
     font-size: 24px;
@@ -29,7 +31,7 @@ header {
 }
 
 header a {
-    color: #FFA500; 
+    color: #FFA500;
     text-decoration: none;
 }
 
@@ -42,7 +44,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff; 
+    color: #fff;
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -72,10 +74,8 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 50px 0;
-    border-radius: 10px;
-    box-shadow: none;
-    background-color: transparent;
     position: relative;
+    background-color: transparent;
 }
 
 .hero h1 {
@@ -113,14 +113,15 @@ nav a:hover {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+    flex: 1;
 }
 
 /* About, Portfolio, Contact Section Styling */
 .section {
     text-align: center;
-    padding: 50px 20px; 
+    padding: 50px 20px;
     margin-bottom: 50px;
 }
 
@@ -128,10 +129,9 @@ nav a:hover {
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #111; 
+    background-color: #111;
     color: #fff;
     font-size: 14px;
     position: relative;
     width: 100%;
-    bottom: 0;
 }
