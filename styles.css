@@ -83,22 +83,19 @@ nav a:hover {
     font-size: 50px;
     margin-bottom: 10px;
     position: relative;
-    display: inline-block; /* Ensure the line is aligned with the text */
+    display: inline-block;
 }
 
-.hero p {
-    font-family: 'Pathway Extreme', sans-serif;
-    font-size: 20px;
-    margin-top: 0;
-}
-
-/* Red Sliding Line */
-.underline {
-    width: 100%;
+.hero .underline {
+    display: inline-block;
+    width: 0;
     height: 4px;
     background-color: red;
-    margin: 0 auto;
+    margin-top: 5px; /* Space between text and line */
     animation: slide 1s forwards;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
 }
 
 @keyframes slide {
@@ -127,8 +124,13 @@ nav a:hover {
 }
 
 .section .underline {
-    width: 100%;
+    display: inline-block;
+    width: 0;
     animation: slide 1s forwards;
+    position: absolute;
+    bottom: -10px;
+    height: 4px;
+    background-color: red;
 }
 
 .section {
@@ -145,7 +147,6 @@ footer {
     color: #fff;
     font-size: 14px;
     position: relative;
-    bottom: 0;
     width: 100%;
-    margin-top: auto; /* Ensure footer is pushed to the bottom */
+    margin-top: auto;
 }
