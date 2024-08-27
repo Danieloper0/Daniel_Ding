@@ -1,35 +1,28 @@
 /* Global Styles - Dark Mode with Dot Paper Background */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif;
-    color: #fff;
+    font-family: 'Pathway Extreme', sans-serif; 
+    color: #fff; 
     background-color: #000;
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
-    background-attachment: fixed;
-    background-position: center;
+    background-attachment: fixed; 
+    background-position: center; 
     overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
-/* Header Styling */
+/* Header Styling - Dark Mode */
 header {
-    background-color: #111;
-    color: #FFA500;
-    padding: 20px;
+    background-color: #111; 
+    color: #FFA500; 
+    padding: 10px 0;
     text-align: center;
-    font-family: 'Didot', serif; /* Set header font to Didot */
     font-size: 24px;
     font-weight: 600;
-    width: 80%; /* Restrict width */
-    margin: 0 auto; /* Center header */
-    border-radius: 10px; /* Add a bit of curve */
 }
 
 header a {
-    color: #FFA500;
+    color: #FFA500; 
     text-decoration: none;
 }
 
@@ -42,7 +35,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff;
+    color: #fff; 
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -68,61 +61,51 @@ nav a:hover {
     color: orange;
 }
 
+/* Hero Section Styling */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: transparent; /* Remove the grey box */
+}
+
+.hero h1 {
+    font-family: 'Didot', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 20px;
+    margin-top: 0;
+}
+
 /* Container Styling */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); 
     border-radius: 10px;
-    text-align: center;
 }
 
-/* Hero Section Styling */
-.hero {
-    width: 80%; /* Adjust width */
-    margin: 0 auto;
-    padding: 50px 0;
-    background-color: #222;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+/* About, Portfolio, Contact Section Styling */
+.section {
     text-align: center;
-}
-
-/* Font Style for Hero Section Title */
-.hero h1 {
-    font-family: 'Didot', serif; /* Set font to Didot */
-    font-size: 36px; /* Adjust size if needed */
-    color: #fff;
-    text-align: center;
-}
-
-/* Centering Content Below Hero Section */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-}
-
-/* Section Styling */
-section {
-    text-align: center;
-    margin-top: 20px; /* Space between sections */
+    padding: 50px 20px; 
+    margin-bottom: 50px; /* Add spacing between content and footer */
 }
 
 /* Footer Styling */
 footer {
-    background-color: #222;
-    color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 20px 0;
+    background-color: #111; 
+    color: #fff;
+    margin-top: 50px;
+    font-size: 14px;
     position: relative;
-    bottom: 0;
     width: 100%;
-    margin-top: auto;
-}
-
-/* Ensure Main Content Takes Up Remaining Space */
-main {
-    flex: 1;
 }
