@@ -8,9 +8,8 @@ body {
     background-size: 20px 20px;
     background-attachment: fixed;
     background-position: center;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
+    text-align: center; /* Centers all text */
 }
 
 /* Header Style */
@@ -34,14 +33,72 @@ header nav a {
     color: white;
 }
 
+header nav a:hover {
+    color: orange;
+}
+
+header nav a:visited {
+    color: white;
+}
+
+/* Container Style */
+.container {
+    padding-top: 100px;
+}
+
+/* Typing animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Typing Text Style */
+#typing-text {
+    font-size: 2rem;
+    border-right: 2px solid orange; /* Cursor */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    margin: 0 auto;
+    animation: typing 5s steps(40, end), blink .75s step-end infinite;
+}
+
 /* Red Sliding Line */
 .underline {
-    width: 0;
+    width: 100px; /* Adjust width according to text */
     height: 4px;
     background-color: red;
-    margin-top: 0; /* Sets the line directly below the text */
+    margin: 5px auto 0; /* Positions line directly below the text */
     animation: slide 1s forwards;
-    margin: 0 auto;
-    display: inline-block;
-    transform: translateY(5px); /* Fine-tune the position with this */
+}
+
+/* Slide Animation */
+@keyframes slide {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #111;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
 }
