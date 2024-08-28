@@ -1,10 +1,9 @@
-// JavaScript for the mobile menu toggle (optional)
-document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.querySelector('.menu-button');
-    const nav = document.querySelector('nav');
+document.addEventListener("DOMContentLoaded", function() {
+    const typingElement = document.querySelector(".typing-animation");
 
-    menuButton.addEventListener('click', function () {
-        nav.classList.toggle('active');
-        menuButton.classList.toggle('active');
+    typingElement.addEventListener("animationend", function(event) {
+        if (event.animationName === "typing") {
+            typingElement.style.borderRight = "none"; // Stop the blinking cursor after typing animation
+        }
     });
 });
