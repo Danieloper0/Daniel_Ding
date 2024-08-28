@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Ding</title>
+    <title>Daniel Ding | Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100..900&family=Didot&display=swap" rel="stylesheet">
@@ -50,5 +50,18 @@
     <footer>
         <p>&copy; 2024 Daniel Ding | All Rights Reserved</p>
     </footer>
+
+    <!-- JavaScript to stop the caret after typing -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const typingElement = document.querySelector(".typing-animation");
+
+            typingElement.addEventListener("animationend", function(event) {
+                if (event.animationName === "typing") {
+                    typingElement.style.borderRight = "none"; // Stop the blinking cursor after typing animation
+                }
+            });
+        });
+    </script>
 </body>
 </html>
