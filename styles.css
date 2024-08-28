@@ -1,3 +1,75 @@
+/* Global Styles - Dark Mode with Dot Paper Background */
+body {
+    margin: 0;
+    font-family: 'Pathway Extreme', sans-serif;
+    color: #fff;
+    background-color: #000;
+    background-image: radial-gradient(circle, #555 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Content Wrapper */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    background-color: #111;
+    color: #FFA500;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+header a {
+    color: #FFA500;
+    text-decoration: none;
+}
+
+/* Navigation Styling */
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: orange;
+}
+
 /* Typing Animation */
 .typing-animation {
     font-family: 'Didot', serif;
@@ -5,10 +77,10 @@
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid orange; /* Orange cursor */
-    width: fit-content; /* Keep the width as per content */
+    width: fit-content;
     animation: typing 5s steps(30, end), blink-caret 0.75s step-end infinite;
     margin: 0 auto; /* Center the text */
-    position: relative;
+    display: inline-block;
 }
 
 /* Typing animation from 0 to 100% of the text */
@@ -23,8 +95,55 @@
     50% { border-color: transparent; }
 }
 
-/* Stop caret blink after typing */
-.typing-animation.finished {
-    animation: none; /* Stop the animation */
-    border-right: none; /* Remove the caret */
+/* Red Sliding Line */
+.underline {
+    width: 0;
+    height: 4px;
+    background-color: red;
+    margin-top: 5px; /* Space between text and line */
+    animation: slide 1s forwards;
+    margin: 0 auto; /* Ensure it's centered */
+}
+
+@keyframes slide {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    flex: 1;
+}
+
+/* About, Portfolio, Contact Section Styling */
+.section h2 {
+    font-family: 'Didot', serif;
+    position: relative;
+}
+
+.section {
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 50px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #111;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
 }
