@@ -98,9 +98,11 @@ nav a:hover {
     margin-bottom: 10px;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid #FFA500; /* Cursor effect */
+    border-right: 3px solid orange; /* Orange cursor */
     width: 0;
-    animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+    animation: typing 5s steps(40, end), blink 0.75s step-end infinite;
+    margin: 0 auto; /* Center the text */
+    display: inline-block;
 }
 
 @keyframes typing {
@@ -109,8 +111,7 @@ nav a:hover {
 }
 
 @keyframes blink {
-    from { border-color: transparent; }
-    to { border-color: #FFA500; }
+    50% { border-color: transparent; }
 }
 
 /* Red Sliding Line */
@@ -118,7 +119,7 @@ nav a:hover {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 5px; /* Space between text and line */
+    margin-top: 3.5px; /* Space between text and line */
     animation: slide 1s forwards;
 }
 
