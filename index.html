@@ -3,65 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Ding</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@100..900&family=Didot&display=swap" rel="stylesheet">
+    <title>Daniel Ding | Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="content">
-        <header>
-            <a href="index.html">Daniel Ding</a>
-        </header>
+    <header>
         <nav>
             <a href="about.html">About</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <div class="hero">
+    </header>
+
+    <div class="content">
+        <div class="hero-section">
             <h1 class="typing-animation">Welcome to My World</h1>
             <p>Professional Violinist, Aspiring Programmer, and Chess enthusiast</p>
         </div>
-        <div class="container">
-            <section class="section">
-                <div class="text-line-wrapper">
-                    <h2>About Me</h2>
-                    <div class="underline"></div>
-                </div>
-                <p>I'm Daniel Ding, a passionate programmer with a deep love for music and programming. This website showcases my journey, from coding projects to musical achievements.</p>
-            </section>
-            <section class="section">
-                <div class="text-line-wrapper">
-                    <h2>Portfolio</h2>
-                    <div class="underline"></div>
-                </div>
-                <p>Coming soon...</p>
-            </section>
-            <section class="section">
-                <div class="text-line-wrapper">
-                    <h2>Contact Me</h2>
-                    <div class="underline"></div>
-                </div>
-                <p>Feel free to reach out via email at <a href="mailto:danielding7788@gmail.com">danielding7788@gmail.com</a>.</p>
-            </section>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+            <p>I'm Daniel Ding, a passionate programmer with a deep love for music and programming...</p>
+        </div>
+
+        <div class="section">
+            <h2>Portfolio</h2>
+            <div class="underline"></div>
+            <p>Coming soon...</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact Me</h2>
+            <div class="underline"></div>
+            <p>Feel free to reach out to me at [your email].</p>
         </div>
     </div>
+
     <footer>
-        <p>&copy; 2024 Daniel Ding | All Rights Reserved</p>
+        <p>&copy; 2024 Daniel Ding. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript to stop the caret after typing -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const typingElement = document.querySelector(".typing-animation");
-
-            typingElement.addEventListener("animationend", function(event) {
-                if (event.animationName === "typing") {
-                    typingElement.style.borderRight = "none"; // Stop the blinking cursor after typing animation
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
