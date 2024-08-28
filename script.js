@@ -6,4 +6,4 @@ document.addEventListener("DOMContentLoaded", function() {
             typingElement.style.borderRight = "none"; // Stop the blinking cursor after typing animation
         }
     });
-}); 
+});
