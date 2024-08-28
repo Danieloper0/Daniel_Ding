@@ -13,139 +13,35 @@ body {
     min-height: 100vh;
 }
 
-/* Content Wrapper */
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content */
-    text-align: center;
-}
-
-/* Header Styling */
+/* Header Style */
 header {
-    background-color: #111;
-    color: #FFA500;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
+    background: none; /* Removes the gray box */
+    padding: 10px 0; /* Adjusts padding to make the header smaller */
+    text-align: center; /* Centers the header content */
 }
 
-header a {
-    color: #FFA500;
+/* Heading Style */
+header h1 {
+    font-size: 1.5rem; /* Smaller font size for the heading */
+    margin: 0; /* Removes any extra margin */
+}
+
+/* Navigation Links Style */
+header nav a {
+    font-size: 1rem; /* Smaller font size for the links */
+    margin: 0 15px; /* Adds some spacing between the links */
     text-decoration: none;
+    color: white;
 }
 
-/* Navigation Styling */
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: orange;
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover {
-    color: orange;
-}
-
-/* Typing Animation */
-.typing-animation {
-    font-family: 'Didot', serif;
-    font-size: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid orange; /* Orange cursor */
-    width: 24ch; /* Adjust the width to the length of the text */
-    animation: typing 5s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-    margin: 0 auto; /* Center the text */
-    display: inline-block;
-}
-
-/* Typing animation from 0 to 100% of the text */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 24ch; } /* Adjust to match text length */
-}
-
-/* Blinking caret */
-@keyframes blink-caret {
-    from, to { border-color: orange; }
-    50% { border-color: transparent; }
-}
-
+/* Red Sliding Line */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 2px; /* Reduced from 5px to 2px */
+    margin-top: 0; /* Sets the line directly below the text */
     animation: slide 1s forwards;
-    margin: 0 auto; /* Ensure it's centered */
-    display: inline-block;
-}
-
-@keyframes slide {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100px; /* Adjust the width to match the text length */
-    }
-}
-
-/* Container Styling */
-.container {
-    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    flex: 1;
-}
-
-/* About, Portfolio, Contact Section Styling */
-.section h2 {
-    font-family: 'Didot', serif;
-    position: relative;
-}
-
-.section {
-    text-align: center;
-    padding: 50px 20px;
-    margin-bottom: 50px;
-}
-
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #111;
-    color: #fff;
-    font-size: 14px;
-    position: relative;
-    width: 100%;
-    margin-top: auto;
+    display: inline-block;
+    transform: translateY(5px); /* Fine-tune the position with this */
 }
