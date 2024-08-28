@@ -97,15 +97,14 @@ nav a:hover {
     50% { border-color: transparent; }
 }
 
-/* Red Sliding Line */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 5px; /* Space between text and line */
+    margin-top: 2px; /* Reduced from 5px to 2px */
     animation: slide 1s forwards;
     margin: 0 auto; /* Ensure it's centered */
-    display: inline-block; /* Ensure width doesn't overslide */
+    display: inline-block;
 }
 
 @keyframes slide {
