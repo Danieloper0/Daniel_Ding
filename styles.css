@@ -25,10 +25,22 @@ header h1 {
     margin: 0; /* Removes any extra margin */
 }
 
+/* Daniel Ding Link Style */
+header h1 a {
+    font-family: 'Pathway Extreme', sans-serif; /* Ensures consistent font with heading */
+    color: orange;
+    text-decoration: none;
+    font-size: 1.5rem; /* Adjusts the size for better appearance */
+}
+
+header h1 a:hover {
+    color: orange; /* Keeps it consistent with the color */
+}
+
 /* Navigation Links Style */
 header nav a {
     font-size: 1rem; /* Smaller font size for the links */
-    margin: 0 15px; /* Adds some spacing between the links */
+    margin: 0 20px; /* Adds some spacing between the links */
     text-decoration: none;
     color: white;
 }
@@ -38,7 +50,7 @@ header nav a:hover {
 }
 
 header nav a:visited {
-    color: white;
+    color: white; /* Ensures link doesn't turn purple */
 }
 
 /* Container Style */
@@ -64,6 +76,7 @@ header nav a:visited {
 
 /* Typing Text Style */
 #typing-text {
+    font-family: 'Pathway Extreme', sans-serif; /* Matches font style with the header */
     font-size: 2rem;
     border-right: 2px solid orange; /* Cursor */
     white-space: nowrap;
@@ -73,23 +86,14 @@ header nav a:visited {
     animation: typing 5s steps(40, end), blink .75s step-end infinite;
 }
 
-/* Red Sliding Line */
+/* Remove underline */
 .underline {
-    width: 100px; /* Adjust width according to text */
-    height: 4px;
-    background-color: red;
-    margin: 5px auto 0; /* Positions line directly below the text */
-    animation: slide 1s forwards;
+    display: none;
 }
 
-/* Slide Animation */
-@keyframes slide {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100px;
-    }
+/* Section Style */
+section {
+    margin: 100px 0; /* Adds space between sections */
 }
 
 /* Footer */
@@ -97,7 +101,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     background-color: #111;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     color: #fff;
