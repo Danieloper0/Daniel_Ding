@@ -1,9 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const typingElement = document.querySelector(".typing-animation");
+window.onload = function() {
+    const textElement = document.getElementById("typing-text");
 
-    typingElement.addEventListener("animationend", function(event) {
-        if (event.animationName === "typing") {
-            typingElement.style.borderRight = "none"; // Stop the blinking cursor after typing animation
+    let index = 0;
+    const text = "Welcome to My World\nProfessional Violinist, Aspiring Programmer, and Chess enthusiast";
+    
+    function type() {
+        if (index < text.length) {
+            textElement.innerHTML += text[index] === "\n" ? "<br>" : text[index];
+            index++;
+            setTimeout(type, 100); // Adjust typing speed here
+        } else {
+            textElement.style.borderRight = "none"; // Hide cursor once typing is done
         }
-    });
-});
+    }
+
+    type();
+};
