@@ -8,58 +8,105 @@ body {
     background-size: 20px 20px;
     background-attachment: fixed;
     background-position: center;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    text-align: center; /* Centers all text */
 }
 
-/* Header Style */
+/* Content Wrapper */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
 header {
-    background: none; /* Removes the gray box */
-    padding: 10px 0; /* Adjusts padding to make the header smaller */
-    text-align: center; /* Centers the header content */
+    background-color: #111;
+    color: #FFA500;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
 }
 
-/* Heading Style */
-header h1 {
-    font-size: 1.5rem; /* Smaller font size for the heading */
-    margin: 0; /* Removes any extra margin */
-}
-
-/* Daniel Ding Link Style */
-header h1 a {
-    font-family: 'Pathway Extreme', sans-serif; /* Ensures consistent font with heading */
-    color: orange;
+header a {
+    color: #FFA500;
     text-decoration: none;
-    font-size: 1.5rem; /* Adjusts the size for better appearance */
 }
 
-header h1 a:hover {
-    color: orange; /* Keeps it consistent with the color */
+/* Navigation Styling */
+nav {
+    text-align: center;
+    margin: 20px 0;
 }
 
-/* Navigation Links Style */
-header nav a {
-    font-size: 1rem; /* Smaller font size for the links */
-    margin: 0 20px; /* Adds some spacing between the links */
+nav a {
+    margin: 0 15px;
     text-decoration: none;
-    color: white;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-header nav a:hover {
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
     color: orange;
 }
 
-header nav a:visited {
-    color: white; /* Ensures link doesn't turn purple */
+/* Text and Line Wrapper */
+.text-line-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-/* Container Style */
-.container {
-    padding-top: 100px;
+/* Hero Section Styling */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: transparent;
 }
 
-/* Typing animation */
-@keyframes typing {
+.hero h1 {
+    font-family: 'Didot', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* Red Sliding Line */
+.underline {
+    width: 0;
+    height: 4px;
+    background-color: red;
+    margin-top: 5px; /* Space between text and line */
+    animation: slide 1s forwards;
+}
+
+@keyframes slide {
     from {
         width: 0;
     }
@@ -68,41 +115,36 @@ header nav a:visited {
     }
 }
 
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
-/* Typing Text Style */
-#typing-text {
-    font-family: 'Pathway Extreme', sans-serif; /* Matches font style with the header */
-    font-size: 2rem;
-    border-right: 2px solid orange; /* Cursor */
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
+/* Container Styling */
+.container {
+    max-width: 900px;
     margin: 0 auto;
-    animation: typing 5s steps(40, end), blink .75s step-end infinite;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    flex: 1;
 }
 
-/* Remove underline */
-.underline {
-    display: none;
+/* About, Portfolio, Contact Section Styling */
+.section h2 {
+    font-family: 'Didot', serif;
+    position: relative;
 }
 
-/* Section Style */
-section {
-    margin: 100px 0; /* Adds space between sections */
+.section {
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 50px;
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 20px 0;
     background-color: #111;
-    position: relative;
-    bottom: 0;
-    width: 100%;
     color: #fff;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
 }
