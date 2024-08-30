@@ -35,9 +35,12 @@ header {
     font-weight: 600;
 }
 
+/* Header Link Styling - Font Updated */
 header a {
     color: var(--primary-color);
     text-decoration: none;
+    font-family: 'Didot', serif; /* Matching font with "Welcome to My World" */
+    font-size: 1.75rem; /* Adjust font size if needed */
 }
 
 nav {
@@ -99,11 +102,12 @@ nav a:hover {
     margin-top: 0;
 }
 
+/* Red Sliding Line - Adjusted */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 5px;
+    margin-top: 0; /* Reduced margin to bring the line closer to the text */
     animation: slide 1s forwards;
 }
 
