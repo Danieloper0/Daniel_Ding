@@ -1,9 +1,16 @@
-/* Global Styles - Dark Mode with Dot Paper Background */
+:root {
+    --primary-color: #FFA500;
+    --background-dark: #111;
+    --background-darker: #000;
+    --text-color: #fff;
+    --highlight-color: orange;
+}
+
 body {
     margin: 0;
     font-family: 'Pathway Extreme', sans-serif;
-    color: #fff;
-    background-color: #000;
+    color: var(--text-color);
+    background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
     background-attachment: fixed;
@@ -13,29 +20,26 @@ body {
     min-height: 100vh;
 }
 
-/* Content Wrapper */
 .content {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Header Styling */
 header {
-    background-color: #111;
-    color: #FFA500;
+    background-color: var(--background-dark);
+    color: var(--primary-color);
     padding: 10px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 header a {
-    color: #FFA500;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
-/* Navigation Styling */
 nav {
     text-align: center;
     margin: 20px 0;
@@ -44,7 +48,7 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -56,7 +60,7 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: orange;
+    background-color: var(--highlight-color);
     left: 0;
     bottom: 0;
     transition: width 0.3s ease-in-out;
@@ -67,10 +71,9 @@ nav a:hover::after {
 }
 
 nav a:hover {
-    color: orange;
+    color: var(--highlight-color);
 }
 
-/* Text and Line Wrapper */
 .text-line-wrapper {
     display: inline-flex;
     flex-direction: column;
@@ -78,7 +81,6 @@ nav a:hover {
     position: relative;
 }
 
-/* Hero Section Styling */
 .hero {
     text-align: center;
     padding: 50px 0;
@@ -87,22 +89,21 @@ nav a:hover {
 
 .hero h1 {
     font-family: 'Didot', serif;
-    font-size: 50px;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .hero p {
     font-family: 'Pathway Extreme', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-top: 0;
 }
 
-/* Red Sliding Line */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 5px; /* Space between text and line */
+    margin-top: 5px;
     animation: slide 1s forwards;
 }
 
@@ -115,7 +116,6 @@ nav a:hover {
     }
 }
 
-/* Container Styling */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -125,7 +125,6 @@ nav a:hover {
     flex: 1;
 }
 
-/* About, Portfolio, Contact Section Styling */
 .section h2 {
     font-family: 'Didot', serif;
     position: relative;
@@ -137,13 +136,12 @@ nav a:hover {
     margin-bottom: 50px;
 }
 
-/* Footer Styling */
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #111;
-    color: #fff;
-    font-size: 14px;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    font-size: 0.875rem;
     position: relative;
     width: 100%;
     margin-top: auto;
