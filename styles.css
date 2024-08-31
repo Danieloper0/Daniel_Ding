@@ -1,3 +1,26 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-right: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
 /* Dropdown container */
 .dropdown {
     margin: 20px 0;
