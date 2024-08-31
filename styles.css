@@ -65,7 +65,7 @@ nav a::after {
     height: 2px;
     background-color: var(--highlight-color);
     left: 0;
-    bottom: 0;
+    bottom: -3px; /* Adjust this value to move the line closer to the text */
     transition: width 0.3s ease-in-out;
 }
 
@@ -102,12 +102,12 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Red Sliding Line - Adjusted */
+/* Red Sliding Line Adjustment */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 0; /* Reduced margin to bring the line closer to the text */
+    margin-top: 2px; /* Adjust to bring the line closer to the text */
     animation: slide 1s forwards;
 }
 
