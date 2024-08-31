@@ -19,17 +19,15 @@
     </nav>
 
     <div class="container">
-        <!-- Bolded text with the definition -->
-        <p><strong>Erudite ('er(y)əˌdīt'; Adj): Having or showing great knowledge or learning.</strong></p>
-
-        <!-- Portfolio Dropdowns -->
+        <!-- Title with sliding line -->
         <section id="portfolio">
-            <h2>My Portfolio</h2>
-            <p>Below are the categories showcasing my work and achievements.</p>
+            <h2 class="title-line">My Portfolio</h2>
+            <p class="definition-line"><strong>Erudite ('er(y)əˌdīt'; Adj): Having or showing great knowledge or learning.</strong></p>
 
             <!-- Dropdown for Academics -->
             <div class="dropdown">
-                <button class="dropdown-btn">Academics ▼</button>
+                <span>Academics</span>
+                <button class="dropdown-btn">▼</button>
                 <div class="dropdown-content">
                     <!-- Add academic content here -->
                     <!-- Example: <p>Coursework, Projects, etc.</p> -->
@@ -41,7 +39,8 @@
 
             <!-- Dropdown for Extracurriculars -->
             <div class="dropdown">
-                <button class="dropdown-btn">Extracurriculars ▼</button>
+                <span>Extracurriculars</span>
+                <button class="dropdown-btn">▼</button>
                 <div class="dropdown-content">
                     <!-- Add extracurricular content here -->
                     <!-- Example: <p>Clubs, Activities, etc.</p> -->
@@ -57,7 +56,8 @@
 
             <!-- Dropdown for Creative Projects -->
             <div class="dropdown">
-                <button class="dropdown-btn">Creative Projects ▼</button>
+                <span>Creative Projects</span>
+                <button class="dropdown-btn">▼</button>
                 <div class="dropdown-content">
                     <!-- Add creative projects content here -->
                     <!-- Example: <p>Art, Coding Projects, Music, etc.</p> -->
@@ -70,5 +70,7 @@
     <footer>
         © 2024 Daniel Ding | All Rights Reserved
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
