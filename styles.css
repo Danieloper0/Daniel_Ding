@@ -65,7 +65,7 @@ nav a::after {
     height: 2px;
     background-color: var(--highlight-color);
     left: 0;
-    bottom: -3px; /* Adjust this value to move the line closer to the text */
+    bottom: -18px; /* Adjusted to align with the background dots */
     transition: width 0.3s ease-in-out;
 }
 
@@ -107,7 +107,7 @@ nav a:hover {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: 2px; /* Adjust to bring the line closer to the text */
+    margin-top: -18px; /* Adjusted to move the line up by one dot */
     animation: slide 1s forwards;
 }
 
