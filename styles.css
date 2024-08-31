@@ -63,9 +63,9 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--highlight-color);
+    background-color: var(--highlight-color); /* This is the orange color */
     left: 0;
-    bottom: -18px; /* Adjusted to align with the background dots */
+    bottom: -18px; /* Adjusted to move the line closer to the text */
     transition: width 0.3s ease-in-out;
 }
 
