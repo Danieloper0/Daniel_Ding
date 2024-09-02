@@ -6,13 +6,12 @@
     --highlight-color: orange;
 }
 
-/* Global Styles */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif; /* Original font */
+    font-family: 'Pathway Extreme', sans-serif;
     color: var(--text-color);
     background-color: var(--background-darker);
-    background-image: radial-gradient(circle, #555 1px, transparent 1px); /* Dotted background */
+    background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
     background-attachment: fixed;
     background-position: center;
@@ -27,64 +26,52 @@ body {
     flex-direction: column;
 }
 
+/* Header is now only around the title/link */
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
     padding: 10px 0;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
 }
 
-header a {
-    color: var(--primary-color); /* Orange color for Daniel Ding */
+/* Styling for the header link */
+header h1 a {
+    color: var(--primary-color);
     text-decoration: none;
     font-family: 'Didot', serif;
     font-size: 1.75rem;
 }
 
+/* Navigation styling */
 nav {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 20px;
+    background-color: transparent; /* Remove background color to show dots */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+nav li {
+    margin: 10px 0; /* Space between links */
 }
 
 nav a {
-    margin: 0 15px;
     text-decoration: none;
     color: var(--text-color);
     font-weight: 600;
     position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--highlight-color); /* Orange sliding line */
-    left: 0;
-    bottom: -18px;
-    transition: width 0.3s ease-in-out;
-}
-
-nav a:hover::after {
-    width: 100%;
+    display: block; /* Stack links vertically */
+    padding: 10px 0;
+    transition: color 0.3s ease-in-out;
 }
 
 nav a:hover {
     color: var(--highlight-color);
 }
 
-.text-line-wrapper {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-/* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 0;
@@ -95,20 +82,17 @@ nav a:hover {
     font-family: 'Didot', serif;
     font-size: 3rem;
     margin-bottom: 10px;
+    position: relative;
 }
 
-.hero p {
-    font-family: 'Pathway Extreme', sans-serif;
-    font-size: 1.25rem;
-    margin-top: 0;
-}
-
-/* Red Sliding Line */
+/* Red Sliding Line Adjustment - aligned to "Welcome to My World" */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin-top: -18px;
+    position: absolute;
+    bottom: -10px; /* Adjusted to move closer under "Welcome to My World" */
+    left: 0;
     animation: slide 1s forwards;
 }
 
@@ -121,12 +105,11 @@ nav a:hover {
     }
 }
 
-/* Container for sections */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     flex: 1;
 }
@@ -142,7 +125,6 @@ nav a:hover {
     margin-bottom: 50px;
 }
 
-/* Footer at the bottom of the page */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -151,5 +133,5 @@ footer {
     font-size: 0.875rem;
     position: relative;
     width: 100%;
-    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: auto;
 }
