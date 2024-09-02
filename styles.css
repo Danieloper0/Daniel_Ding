@@ -1,82 +1,118 @@
-/* General Styles */
+:root {
+    --primary-color: #FFA500;
+    --background-dark: #111;
+    --background-darker: #000;
+    --text-color: #fff;
+    --highlight-color: orange;
+}
+
+/* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 20px;
+    font-family: 'Pathway Extreme', sans-serif; /* Original font */
+    color: var(--text-color);
+    background-color: var(--background-darker);
+    background-image: radial-gradient(circle, #555 1px, transparent 1px); /* Dotted background */
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    font-size: 24px;
-    margin-bottom: 20px;
+    background-color: var(--background-dark);
+    color: var(--primary-color);
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+header a {
+    color: var(--primary-color); /* Orange color for Daniel Ding */
+    text-decoration: none;
+    font-family: 'Didot', serif;
+    font-size: 1.75rem;
+}
+
+nav {
+    text-align: center;
+    margin: 20px 0;
 }
 
 nav a {
-    margin-right: 10px;
-    color: #333;
+    margin: 0 15px;
     text-decoration: none;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-}
-
-/* Dropdown container */
-.dropdown {
-    margin: 20px 0;
+    color: var(--text-color);
+    font-weight: 600;
     position: relative;
-    padding-left: 20px; /* Indent for dropdown content */
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* Dropdown button (arrow only) */
-.dropdown-btn {
-    background: none;
-    color: var(--highlight-color);
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-    display: none;
-    padding: 10px;
-    padding-left: 20px; /* Additional indentation for content */
-    background-color: rgba(0, 0, 0, 0.8);
-    border-left: 4px solid var(--highlight-color);
-    border-radius: 0 0 10px 10px;
-    margin-top: 10px;
-}
-
-/* Show dropdown content when active */
-.dropdown.active .dropdown-content {
-    display: block;
-}
-
-/* Text line styling for title and definition */
-.title-line, .definition-line {
-    text-align: center;
-    position: relative;
-    margin: 20px 0;
-    font-size: 1.5rem;
-}
-
-.title-line::after, .definition-line::after {
+nav a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 4px;
+    height: 2px;
     background-color: var(--highlight-color); /* Orange sliding line */
-    left: 50%;
-    bottom: -10px;
-    transform: translateX(-50%);
-    animation: slideOrange 1s forwards;
+    left: 0;
+    bottom: -18px;
+    transition: width 0.3s ease-in-out;
 }
 
-@keyframes slideOrange {
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--highlight-color);
+}
+
+.text-line-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: transparent;
+}
+
+.hero h1 {
+    font-family: 'Didot', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+/* Red Sliding Line */
+.underline {
+    width: 0;
+    height: 4px;
+    background-color: red;
+    margin-top: -18px;
+    animation: slide 1s forwards;
+}
+
+@keyframes slide {
     from {
         width: 0;
     }
@@ -85,8 +121,35 @@ nav a {
     }
 }
 
-/* Update text alignment */
-.dropdown-content p {
-    margin-left: 30px;
-    text-indent: 20px;
+/* Container for sections */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    flex: 1;
+}
+
+.section h2 {
+    font-family: 'Didot', serif;
+    position: relative;
+}
+
+.section {
+    text-align: center;
+    padding: 50px 20px;
+    margin-bottom: 50px;
+}
+
+/* Footer at the bottom of the page */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    position: relative;
+    width: 100%;
+    margin-top: auto; /* Push the footer to the bottom */
 }
