@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #FFA500;
+    --primary-color: #FFA500; /* Orange */
     --background-dark: #111;
     --background-darker: #000;
     --text-color: #fff;
@@ -31,29 +31,26 @@ header {
     color: var(--primary-color);
     padding: 10px 0;
     text-align: center;
-    width: 100%;  /* Ensure consistent width */
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 100%; /* Ensures consistency across all pages */
 }
 
-/* Styling for the header link */
+/* Header Link Styling */
 header h1 a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Orange color */
+    font-family: 'Didot', serif; /* Didot font */
     text-decoration: none;
-    font-family: 'Didot', serif;
-    font-size: 1.75rem;
 }
 
-/* Navigation styling - Horizontal Links */
+/* Navigation Styling */
 nav ul {
-    list-style-type: none; /* Remove bullets */
+    list-style-type: none;
     padding: 0;
-    margin: 0;
-    display: flex; /* Display links horizontally */
+    margin: 0 auto;
+    display: flex;
     justify-content: center;
-    gap: 30px; /* Space between links */
-}
-
-nav li {
-    margin: 0;
+    gap: 30px;
 }
 
 nav a {
@@ -61,19 +58,20 @@ nav a {
     color: var(--text-color);
     font-weight: 600;
     position: relative;
+    display: inline-block;
     padding-bottom: 5px;
     transition: color 0.3s ease-in-out;
 }
 
-/* Restore sliding orange line */
+/* Orange Line on Hover */
 nav a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--highlight-color);
+    background-color: var(--highlight-color); /* Orange */
     left: 0;
-    bottom: -2px;
+    bottom: -5px;
     transition: width 0.3s ease-in-out;
 }
 
@@ -85,11 +83,7 @@ nav a:hover {
     color: var(--highlight-color);
 }
 
-/* Ensure visited links are not purple */
-nav a:visited {
-    color: var(--text-color);
-}
-
+/* Hero Section */
 .hero {
     text-align: center;
     padding: 50px 0;
@@ -100,19 +94,24 @@ nav a:visited {
     font-family: 'Didot', serif;
     font-size: 3rem;
     margin-bottom: 10px;
-    position: relative;
 }
 
-/* Red Sliding Line Adjustment - aligned to "Welcome to My World" */
+.hero p {
+    font-family: 'Pathway Extreme', sans-serif;
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+/* Red Sliding Line */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
-    margin: 0 auto; /* Center align */
+    margin: 0 auto;
     animation: slide 1s forwards;
-    margin-top: 10px; /* Adjust to correct position under "Welcome to My World" */
+    margin-top: 10px;
     position: relative;
-    bottom: -10px; /* Fine-tune this value to position exactly under the text */
+    bottom: -10px;
 }
 
 @keyframes slide {
@@ -124,6 +123,29 @@ nav a:visited {
     }
 }
 
+/* Section Headers */
+.section h2 {
+    font-family: 'Didot', serif;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: red;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out;
+}
+
+.section h2:hover::after {
+    width: 100%;
+}
+
+/* Container Styling */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -133,17 +155,7 @@ nav a:visited {
     flex: 1;
 }
 
-.section h2 {
-    font-family: 'Didot', serif;
-    position: relative;
-}
-
-.section {
-    text-align: center;
-    padding: 50px 20px;
-    margin-bottom: 50px;
-}
-
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -153,4 +165,52 @@ footer {
     position: relative;
     width: 100%;
     margin-top: auto;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* White arrow */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black; /* Black box */
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* Sliding Orange Line for Text Definition */
+.definition {
+    position: relative;
+}
+
+.definition::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.5s ease-in-out;
+}
+
+.definition {
+    animation: slide 1s forwards;
 }
