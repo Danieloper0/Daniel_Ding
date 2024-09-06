@@ -1,16 +1,16 @@
 // Dropdown Toggle Functionality
-document.querySelectorAll('.dropdown').forEach(dropdown => {
-    dropdown.addEventListener('click', function() {
-        this.classList.toggle('show');
+document.querySelectorAll('.dropbtn').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent triggering window.onclick
+        this.nextElementSibling.classList.toggle('show');
     });
 });
 
-// Close the dropdown if clicked outside
+// Close dropdowns when clicking outside
 window.onclick = function(event) {
-    if (!event.target.matches('.dropdown')) {
-        var dropdowns = document.querySelectorAll('.dropdown-content');
-        dropdowns.forEach(dropdown => {
-            dropdown.parentNode.classList.remove('show');
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            content.classList.remove('show');
         });
     }
 };
