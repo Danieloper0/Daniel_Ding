@@ -33,13 +33,13 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
-    width: 100%; /* Ensures consistency across all pages */
+    width: 100%;
 }
 
 /* Header Link Styling */
 header h1 a {
-    color: var(--primary-color); /* Orange color */
-    font-family: 'Didot', serif; /* Didot font */
+    color: var(--primary-color);
+    font-family: 'Didot', serif;
     text-decoration: none;
 }
 
@@ -69,7 +69,7 @@ nav a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--highlight-color); /* Orange */
+    background-color: var(--highlight-color);
     left: 0;
     bottom: -5px;
     transition: width 0.3s ease-in-out;
@@ -86,8 +86,13 @@ nav a:hover {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 50px 0;
+    padding: 50px 20px;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
 }
 
 .hero h1 {
@@ -153,6 +158,8 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     flex: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Footer Styling */
@@ -171,7 +178,7 @@ footer {
 .dropdown {
     position: relative;
     display: inline-block;
-    color: white; /* White arrow */
+    color: white;
     font-weight: bold;
     margin-right: 10px;
 }
@@ -179,7 +186,7 @@ footer {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: black; /* Black box */
+    background-color: black;
     min-width: 160px;
     z-index: 1;
 }
