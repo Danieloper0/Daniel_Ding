@@ -2,7 +2,7 @@
 document.querySelectorAll('.dropbtn').forEach(button => {
     button.addEventListener('click', function(event) {
         event.stopPropagation(); // Prevent triggering window.onclick
-        this.nextElementSibling.classList.toggle('show');
+        this.nextElementSibling.classList.toggle('show'); // Toggle visibility
     });
 });
 
