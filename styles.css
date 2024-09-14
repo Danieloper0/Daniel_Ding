@@ -6,9 +6,10 @@
     --highlight-color: orange;
 }
 
+/* Body Styles */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif;
+    font-family: 'Pathway Extreme', sans-serif; /* Consistent font */
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -20,27 +21,30 @@ body {
     min-height: 100vh;
 }
 
+/* General Content */
 .content {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
+/* Header Styles */
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced padding */
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Smaller font size */
     font-weight: 600;
     width: 100%;
+    border-bottom: 1px solid var(--primary-color); /* Reduced border width */
 }
 
-/* Header Link Styling */
 header h1 a {
     color: var(--primary-color);
     font-family: 'Didot', serif;
     text-decoration: none;
+    font-size: 2rem; /* Adjusted font size */
 }
 
 /* Navigation Styling */
@@ -107,16 +111,16 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Red Sliding Line */
+/* Red Sliding Line (for main headings) */
 .underline {
     width: 0;
     height: 4px;
     background-color: red;
     margin: 0 auto;
     animation: slide 1s forwards;
-    margin-top: 10px;
+    margin-top: 5px; /* Reduced margin for closer positioning */
     position: relative;
-    bottom: -10px;
+    bottom: 0;
 }
 
 @keyframes slide {
@@ -128,7 +132,7 @@ nav a:hover {
     }
 }
 
-/* Section Headers */
+/* Section Headers with Red Line */
 .section h2 {
     font-family: 'Didot', serif;
     position: relative;
@@ -162,6 +166,11 @@ nav a:hover {
     box-sizing: border-box;
 }
 
+/* Spacing Between Sections */
+.section {
+    margin-bottom: 50px; /* Added margin to create spacing between sections */
+}
+
 /* Footer Styling */
 footer {
     text-align: center;
@@ -177,10 +186,8 @@ footer {
 /* Dropdown Styling */
 .dropdown {
     position: relative;
-    display: inline-block;
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
+    display: block; /* Block display to stack dropdowns */
+    margin-bottom: 10px; /* Separate dropdowns */
 }
 
 .dropdown-content {
@@ -202,22 +209,33 @@ footer {
     display: block;
 }
 
-/* Sliding Orange Line for Text Definition */
-.definition {
+/* Yellow Sliding Line for Text Definition */
+.definition-line {
     position: relative;
+    margin-bottom: 20px;
 }
 
-.definition::after {
+.definition-line::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--highlight-color);
+    background-color: yellow;
     left: 0;
     bottom: -5px;
-    transition: width 0.5s ease-in-out;
+    animation: slide 1s forwards; /* Similar sliding animation */
 }
 
-.definition {
-    animation: slide 1s forwards;
+/* Font Consistency Across Pages */
+body {
+    font-family: 'Pathway Extreme', sans-serif; /* Pathway Extreme as default */
+}
+
+h1, h2 {
+    font-family: 'Didot', serif; /* Didot for header text */
+}
+
+/* Ensure consistent color for links */
+nav a {
+    color: var(--text-color);
 }
