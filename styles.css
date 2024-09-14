@@ -45,21 +45,22 @@ header h1 a {
     font-family: 'Didot', serif;
     text-decoration: none;
     font-size: 2rem; /* Adjusted font size */
+    text-align: center; /* Centering Daniel Ding link */
 }
 
-/* Navigation Styling */
+/* Ensure Centered Navigation */
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center links */
     gap: 30px;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-color); /* Ensure correct link color */
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -111,34 +112,15 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Red Sliding Line (for main headings) */
-.underline {
-    width: 0;
-    height: 4px;
-    background-color: red;
-    margin: 0 auto;
-    animation: slide 1s forwards;
-    margin-top: 5px; /* Reduced margin for closer positioning */
-    position: relative;
-    bottom: 0;
-}
-
-@keyframes slide {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* Section Headers with Red Line */
+/* Section Headers */
 .section h2 {
     font-family: 'Didot', serif;
     position: relative;
     margin-bottom: 20px;
+    padding-bottom: 5px; /* Added padding to create space for the red line */
 }
 
+/* Adjust Red Line (Constrain to Text Width and Place Right Under Text) */
 .section h2::after {
     content: '';
     position: absolute;
@@ -146,12 +128,13 @@ nav a:hover {
     height: 2px;
     background-color: red;
     left: 0;
-    bottom: -5px;
+    bottom: 0; /* Set the red line right under the letters */
     transition: width 0.3s ease-in-out;
+    max-width: 100%; /* Constrain the line to the text width */
 }
 
 .section h2:hover::after {
-    width: 100%;
+    width: 100%; /* Animate the width of the red line */
 }
 
 /* Container Styling */
@@ -168,7 +151,7 @@ nav a:hover {
 
 /* Spacing Between Sections */
 .section {
-    margin-bottom: 50px; /* Added margin to create spacing between sections */
+    margin-bottom: 70px; /* Increased margin to create more space between sections */
 }
 
 /* Footer Styling */
@@ -209,12 +192,13 @@ footer {
     display: block;
 }
 
-/* Yellow Sliding Line for Text Definition */
+/* Yellow Sliding Line for Portfolio Text Definition */
 .definition-line {
     position: relative;
     margin-bottom: 20px;
 }
 
+/* Constrain Yellow Line Animation */
 .definition-line::after {
     content: '';
     position: absolute;
@@ -222,8 +206,13 @@ footer {
     height: 2px;
     background-color: yellow;
     left: 0;
-    bottom: -5px;
-    animation: slide 1s forwards; /* Similar sliding animation */
+    bottom: 0; /* Ensure yellow line is right under the text */
+    transition: width 0.3s ease-in-out;
+    max-width: 100%; /* Constrain the yellow line to the width of the text */
+}
+
+.definition-line:hover::after {
+    width: 100%; /* Animate the yellow line correctly */
 }
 
 /* Font Consistency Across Pages */
@@ -237,5 +226,5 @@ h1, h2 {
 
 /* Ensure consistent color for links */
 nav a {
-    color: var(--text-color);
+    color: var(--text-color); /* Ensure link color is consistent */
 }
