@@ -4,12 +4,13 @@
     --background-darker: #000;
     --text-color: #fff;
     --highlight-color: orange;
+    --line-color: red; /* Red color for sliding lines */
 }
 
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif; /* Consistent font */
+    font-family: 'Pathway Extreme', sans-serif;
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -28,42 +29,43 @@ body {
     flex-direction: column;
 }
 
-/* Header Styles */
+/* Smaller Header Styles */
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
-    padding: 10px 0; /* Increased padding for better spacing */
+    padding: 5px 0; /* Smaller padding for a more compact header */
     text-align: center;
-    font-size: 1.5rem; /* Slightly larger font */
+    font-size: 1.25rem; /* Reduced font size */
     font-weight: 600;
     width: 100%;
-    border-bottom: 1px solid var(--primary-color); /* Border to match the theme */
+    border-bottom: 1px solid var(--primary-color);
 }
 
 header h1 a {
-    color: var(--primary-color); /* Ensure link color matches the main page */
+    color: var(--primary-color);
     font-family: 'Didot', serif;
     text-decoration: none;
-    font-size: 2rem; /* Ensure proper font size for title */
+    font-size: 1.5rem; /* Smaller title size */
 }
 
-/* Center Navigation Links */
+/* Center Navigation Links with Smaller Size */
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
     display: flex;
-    justify-content: center; /* Center the navigation */
-    gap: 30px;
+    justify-content: center;
+    gap: 20px; /* Reduced gap between links for compactness */
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-color); /* Ensure link color consistency */
-    font-weight: 600;
+    color: var(--text-color);
+    font-weight: 500; /* Lighter font-weight for smaller look */
+    font-size: 0.875rem; /* Reduced font size for links */
     position: relative;
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 3px; /* Adjusted padding */
     transition: color 0.3s ease-in-out;
 }
 
@@ -111,29 +113,45 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Red Line Under Section Headers */
+/* Red Sliding Line for "Welcome to My World" */
+.underline {
+    width: 0;
+    height: 4px;
+    background-color: var(--line-color);
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    animation: slideIn 1s forwards;
+}
+
+/* Slide-In Animation for Red Lines */
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Section Headers with Red Sliding Line */
 .section h2 {
     font-family: 'Didot', serif;
     position: relative;
     margin-bottom: 20px;
-    padding-bottom: 5px; /* Add padding to create space for the red line */
+    padding-bottom: 5px;
 }
 
-/* Proper Red Line Positioning */
+/* Sliding Red Line for Other Sections on Page Load */
 .section h2::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: red;
+    background-color: var(--line-color);
     left: 0;
-    bottom: 0; /* Positioned directly underneath the text */
-    transition: width 0.3s ease-in-out;
-    max-width: 100%; /* Ensure the red line doesn't overslide */
-}
-
-.section h2:hover::after {
-    width: 100%; /* Line will slide to the width of the text */
+    bottom: 0;
+    animation: slideIn 1s forwards; /* Automatically slides on page load */
 }
 
 /* Container Styling */
@@ -146,11 +164,6 @@ nav a:hover {
     flex: 1;
     width: 100%;
     box-sizing: border-box;
-}
-
-/* Spacing Between Sections */
-.section {
-    margin-bottom: 70px; /* Increased margin to create more space between sections */
 }
 
 /* Footer Styling */
@@ -168,8 +181,21 @@ footer {
 /* Dropdown Styling */
 .dropdown {
     position: relative;
-    display: block; /* Block display to stack dropdowns */
-    margin-bottom: 10px; /* Separate dropdowns */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.dropdown button {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown button:hover {
+    background-color: var(--primary-color);
 }
 
 .dropdown-content {
@@ -178,13 +204,18 @@ footer {
     background-color: black;
     min-width: 160px;
     z-index: 1;
+    border: 1px solid var(--primary-color);
 }
 
 .dropdown-content a {
     color: white;
+    padding: 10px;
     text-decoration: none;
     display: block;
-    padding: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-color);
 }
 
 .dropdown.show .dropdown-content {
@@ -197,7 +228,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Proper Yellow Line Positioning */
 .definition-line::after {
     content: '';
     position: absolute;
@@ -205,25 +235,19 @@ footer {
     height: 2px;
     background-color: yellow;
     left: 0;
-    bottom: 0; /* Positioned directly underneath the text */
-    transition: width 0.3s ease-in-out;
-    max-width: 100%; /* Ensure the yellow line doesn't overslide */
-}
-
-.definition-line:hover::after {
-    width: 100%; /* Line will slide to the width of the text */
+    bottom: 0;
+    animation: slideIn 1s forwards;
 }
 
 /* Font Consistency Across Pages */
 body {
-    font-family: 'Pathway Extreme', sans-serif; /* Pathway Extreme as default */
+    font-family: 'Pathway Extreme', sans-serif;
 }
 
 h1, h2 {
-    font-family: 'Didot', serif; /* Didot for header text */
+    font-family: 'Didot', serif;
 }
 
-/* Ensure consistent color for links */
 nav a {
-    color: var(--text-color); /* Consistent link color */
+    color: var(--text-color);
 }
