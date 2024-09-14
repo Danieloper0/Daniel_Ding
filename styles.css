@@ -32,35 +32,34 @@ body {
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
-    padding: 5px 0; /* Reduced padding */
+    padding: 10px 0; /* Increased padding for better spacing */
     text-align: center;
-    font-size: 1.25rem; /* Smaller font size */
+    font-size: 1.5rem; /* Slightly larger font */
     font-weight: 600;
     width: 100%;
-    border-bottom: 1px solid var(--primary-color); /* Reduced border width */
+    border-bottom: 1px solid var(--primary-color); /* Border to match the theme */
 }
 
 header h1 a {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Ensure link color matches the main page */
     font-family: 'Didot', serif;
     text-decoration: none;
-    font-size: 2rem; /* Adjusted font size */
-    text-align: center; /* Centering Daniel Ding link */
+    font-size: 2rem; /* Ensure proper font size for title */
 }
 
-/* Ensure Centered Navigation */
+/* Center Navigation Links */
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
     display: flex;
-    justify-content: center; /* Center links */
+    justify-content: center; /* Center the navigation */
     gap: 30px;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--text-color); /* Ensure correct link color */
+    color: var(--text-color); /* Ensure link color consistency */
     font-weight: 600;
     position: relative;
     display: inline-block;
@@ -112,15 +111,15 @@ nav a:hover {
     margin-top: 0;
 }
 
-/* Section Headers */
+/* Red Line Under Section Headers */
 .section h2 {
     font-family: 'Didot', serif;
     position: relative;
     margin-bottom: 20px;
-    padding-bottom: 5px; /* Added padding to create space for the red line */
+    padding-bottom: 5px; /* Add padding to create space for the red line */
 }
 
-/* Adjust Red Line (Constrain to Text Width and Place Right Under Text) */
+/* Proper Red Line Positioning */
 .section h2::after {
     content: '';
     position: absolute;
@@ -128,13 +127,13 @@ nav a:hover {
     height: 2px;
     background-color: red;
     left: 0;
-    bottom: 0; /* Set the red line right under the letters */
+    bottom: 0; /* Positioned directly underneath the text */
     transition: width 0.3s ease-in-out;
-    max-width: 100%; /* Constrain the line to the text width */
+    max-width: 100%; /* Ensure the red line doesn't overslide */
 }
 
 .section h2:hover::after {
-    width: 100%; /* Animate the width of the red line */
+    width: 100%; /* Line will slide to the width of the text */
 }
 
 /* Container Styling */
@@ -198,7 +197,7 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Constrain Yellow Line Animation */
+/* Proper Yellow Line Positioning */
 .definition-line::after {
     content: '';
     position: absolute;
@@ -206,13 +205,13 @@ footer {
     height: 2px;
     background-color: yellow;
     left: 0;
-    bottom: 0; /* Ensure yellow line is right under the text */
+    bottom: 0; /* Positioned directly underneath the text */
     transition: width 0.3s ease-in-out;
-    max-width: 100%; /* Constrain the yellow line to the width of the text */
+    max-width: 100%; /* Ensure the yellow line doesn't overslide */
 }
 
 .definition-line:hover::after {
-    width: 100%; /* Animate the yellow line correctly */
+    width: 100%; /* Line will slide to the width of the text */
 }
 
 /* Font Consistency Across Pages */
@@ -226,5 +225,5 @@ h1, h2 {
 
 /* Ensure consistent color for links */
 nav a {
-    color: var(--text-color); /* Ensure link color is consistent */
+    color: var(--text-color); /* Consistent link color */
 }
