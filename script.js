@@ -14,3 +14,13 @@ window.onclick = function(event) {
         });
     }
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+  const dropdown = document.querySelector('.dropdown');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  dropdown.addEventListener('click', function() {
+    // Toggle visibility of the dropdown content
+    dropdownContent.classList.toggle('show');
+  });
+});
