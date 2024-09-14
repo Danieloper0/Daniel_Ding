@@ -1,5 +1,5 @@
 // Dropdown Toggle Functionality
-document.querySelectorAll('.dropbtn').forEach(button => {
+document.querySelectorAll('.dropdown button').forEach(button => {
     button.addEventListener('click', function(event) {
         event.stopPropagation(); // Prevent triggering window.onclick
         this.nextElementSibling.classList.toggle('show'); // Toggle visibility
@@ -8,7 +8,7 @@ document.querySelectorAll('.dropbtn').forEach(button => {
 
 // Close dropdowns when clicking outside
 window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.dropdown button')) {
         document.querySelectorAll('.dropdown-content').forEach(content => {
             content.classList.remove('show');
         });
