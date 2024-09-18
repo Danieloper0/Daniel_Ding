@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const redLines = document.querySelectorAll('.red-line');
+   const redLines = document.querySelectorAll('.underline'); // Fix here
 
-  // Animate red lines on load
-  redLines.forEach(line => {
-    line.classList.add('animate');
-  });
+   redLines.forEach(line => {
+     line.classList.add('animate');
+   });
+});
 
   // Dropdown functionality
   const dropdown = document.querySelector('.dropdown');
