@@ -3,7 +3,7 @@
     --background-dark: #111;
     --background-darker: #000;
     --text-color: #fff;
-    --highlight-color: orange;
+    --highlight-color: #FF8C00;
     --line-color: red; /* Red color for sliding lines */
 }
 
@@ -98,7 +98,7 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
+    min-height: 60vh;
 }
 
 .hero h1 {
@@ -171,7 +171,8 @@ footer {
     background-color: var(--background-dark);
     color: var(--text-color);
     font-size: 0.875rem;
-    position: relative;
+    position: sticky;
+    bottom: 0;
     width: 100%;
     margin-top: auto;
 }
@@ -212,13 +213,15 @@ footer {
     display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: var(--primary-color);
+.dropdown-content {
+   z-index: 1000;
 }
 
 .dropdown.show .dropdown-content {
-    display: block;
+   display: block;
+   position: absolute; /* Ensure it stays on top */
 }
+
 
 /* Yellow Sliding Line for Portfolio Text Definition */
 .definition-line {
