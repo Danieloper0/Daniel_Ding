@@ -3,14 +3,14 @@
     --background-dark: #111;
     --background-darker: #000;
     --text-color: #fff;
-    --highlight-color: #FF8C00;
+    --highlight-color: #FF8C00; /* Darker orange for better contrast */
     --line-color: red; /* Red color for sliding lines */
 }
 
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Replaced 'Pathway Extreme' with Poppins */
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -22,20 +22,25 @@ body {
     min-height: 100vh;
 }
 
-/* General Content */
-.content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+/* Font Family Classes */
+.pathway-extreme-custom {
+    font-family: "Pathway Extreme", sans-serif;
+    font-weight: 400; /* Variable font weight */
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
 }
 
-/* Smaller Header Styles */
+.didot {
+    font-family: 'Didot', serif;
+}
+
+/* Header Styles */
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
-    padding: 5px 0; /* Smaller padding for a more compact header */
+    padding: 5px 0;
     text-align: center;
-    font-size: 1.5rem; /* Increased header font size */
+    font-size: 1.5rem;
     font-weight: 600;
     width: 100%;
     border-bottom: 1px solid var(--primary-color);
@@ -43,33 +48,32 @@ header {
 
 header h1 a {
     color: var(--primary-color);
-    font-family: 'Didot', serif;
     text-decoration: none;
-    font-size: 2rem; /* Increased title size */
+    font-size: 2rem;
+    font-family: 'Didot', serif;
 }
 
-/* Center Navigation Links with Smaller Size */
+/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    gap: 20px; /* Reduced gap between links for compactness */
+    gap: 20px;
 }
 
 nav a {
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 500; /* Lighter font-weight for smaller look */
-    font-size: 1rem; /* Slightly increased font size for links */
+    font-weight: 500;
+    font-size: 1rem;
     position: relative;
     display: inline-block;
-    padding-bottom: 3px; /* Adjusted padding */
+    padding-bottom: 3px;
     transition: color 0.3s ease-in-out;
 }
 
-/* Orange Line on Hover */
 nav a::after {
     content: '';
     position: absolute;
@@ -102,27 +106,24 @@ nav a:hover {
 }
 
 .hero h1 {
-    font-family: 'Didot', serif;
     font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .hero p {
-    font-family: 'Pathway Extreme', sans-serif;
     font-size: 1.25rem;
     margin-top: 0;
 }
 
-/* Red Sliding Line for "Welcome to My World" */
+/* Red Sliding Line */
 .underline {
-    width: 100%; /* Ensure line starts full width under the text */
+    width: 100%;
     height: 4px;
     background-color: var(--line-color);
     margin: 10px 0 0;
-    position: relative;
 }
 
-/* Slide-In Animation for Red Lines */
+/* Slide-In Animation */
 @keyframes slideIn {
     from {
         width: 0;
@@ -132,24 +133,15 @@ nav a:hover {
     }
 }
 
-/* Section Headers with Red Sliding Line */
-.section h2 {
-    font-family: 'Didot', serif;
-    position: relative;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-}
-
-/* Sliding Red Line for Other Sections on Page Load */
 .section h2::after {
     content: '';
     position: absolute;
-    width: 100%; /* Line now full width immediately */
+    width: 100%;
     height: 2px;
     background-color: var(--line-color);
     left: 0;
     bottom: 0;
-    animation: slideIn 1s forwards; /* Automatically slides on page load */
+    animation: slideIn 1s forwards;
 }
 
 /* Container Styling */
@@ -171,84 +163,7 @@ footer {
     background-color: var(--background-dark);
     color: var(--text-color);
     font-size: 0.875rem;
-    position: sticky;
-    bottom: 0;
+    position: relative;
     width: 100%;
     margin-top: auto;
-}
-
-/* Dropdown Styling */
-.dropdown {
-    position: relative;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.dropdown button {
-    background-color: var(--background-dark);
-    color: var(--text-color);
-    padding: 10px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
-.dropdown button:hover {
-    background-color: var(--primary-color);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    z-index: 1;
-    border: 1px solid var(--primary-color);
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content {
-   z-index: 1000;
-}
-
-.dropdown.show .dropdown-content {
-   display: block;
-   position: absolute; /* Ensure it stays on top */
-}
-
-
-/* Yellow Sliding Line for Portfolio Text Definition */
-.definition-line {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.definition-line::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: yellow;
-    left: 0;
-    bottom: 0;
-    animation: slideIn 1s forwards;
-}
-
-/* Font Consistency Across Pages */
-body {
-    font-family: 'Pathway Extreme', sans-serif;
-}
-
-h1, h2 {
-    font-family: 'Didot', serif;
-}
-
-nav a {
-    color: var(--text-color);
 }
