@@ -1,49 +1,34 @@
 :root {
-    --primary-color: #FFA500; /* Orange */
+    --primary-color: #FFA500;
     --background-dark: #111;
     --background-darker: #000;
     --text-color: #fff;
-    --highlight-color: #FF8C00; /* Darker orange for better contrast */
-    --line-color: red; /* Red color for sliding lines */
+    --highlight-color: #FF8C00;
+    --line-color: red;
 }
 
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Replaced 'Pathway Extreme' with Poppins */
+    font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
     background-size: 20px 20px;
     background-attachment: fixed;
-    background-position: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Font Family Classes */
-.pathway-extreme-custom {
-    font-family: "Pathway Extreme", sans-serif;
-    font-weight: 400; /* Variable font weight */
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 100;
-}
-
-.didot {
-    font-family: 'Didot', serif;
-}
-
-/* Header Styles */
+/* Header: Only Covering Title */
 header {
     background-color: var(--background-dark);
-    color: var(--primary-color);
     padding: 5px 0;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     width: 100%;
-    border-bottom: 1px solid var(--primary-color);
 }
 
 header h1 a {
@@ -53,11 +38,11 @@ header h1 a {
     font-family: 'Didot', serif;
 }
 
-/* Navigation Styles */
+/* Navigation: Moved Outside of Header */
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -69,58 +54,47 @@ nav a {
     font-weight: 500;
     font-size: 1rem;
     position: relative;
-    display: inline-block;
     padding-bottom: 3px;
     transition: color 0.3s ease-in-out;
 }
 
-nav a::after {
+/* Red Line: Under Text, Sliding */
+nav a::after,
+.underline::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    background-color: var(--highlight-color);
+    background-color: var(--line-color);
     left: 0;
     bottom: -5px;
     transition: width 0.3s ease-in-out;
 }
 
-nav a:hover::after {
+nav a:hover::after,
+.underline.animate::after {
     width: 100%;
 }
 
-nav a:hover {
-    color: var(--highlight-color);
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: transparent;
+/* Centering Sections */
+.section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 60vh;
+    justify-content: center;
+    text-align: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-top: 0;
-}
-
-/* Red Sliding Line */
-.underline {
-    width: 100%;
-    height: 4px;
+/* Red Line Animation Fix */
+.section h2::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Initial width is 0 */
+    height: 2px;
     background-color: var(--line-color);
-    margin: 10px 0 0;
+    left: 0;
+    bottom: -5px;
+    animation: slideIn 1s forwards;
 }
 
 /* Slide-In Animation */
@@ -133,18 +107,7 @@ nav a:hover {
     }
 }
 
-.section h2::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--line-color);
-    left: 0;
-    bottom: 0;
-    animation: slideIn 1s forwards;
-}
-
-/* Container Styling */
+/* Container for Centering Content */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -156,14 +119,27 @@ nav a:hover {
     box-sizing: border-box;
 }
 
-/* Footer Styling */
+/* Footer */
 footer {
     text-align: center;
     padding: 20px 0;
     background-color: var(--background-dark);
     color: var(--text-color);
     font-size: 0.875rem;
-    position: relative;
-    width: 100%;
     margin-top: auto;
+}
+
+/* GFS Didot Font Class */
+.gfs-didot-regular {
+    font-family: "GFS Didot", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Pathway Extreme Font */
+.pathway-extreme-custom {
+    font-family: "Pathway Extreme", sans-serif;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
 }
