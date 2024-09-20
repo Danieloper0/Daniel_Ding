@@ -10,7 +10,7 @@
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Replaced 'Pathway Extreme' with Poppins */
+    font-family: 'Poppins', sans-serif;
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -25,13 +25,13 @@ body {
 /* Font Family Classes */
 .pathway-extreme-custom {
     font-family: "Pathway Extreme", sans-serif;
-    font-weight: 400; /* Variable font weight */
+    font-weight: 400;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
 }
 
 .didot {
-    font-family: 'Didot', serif;
+    font-family: 'Didot', serif; /* Using Didot for headings */
 }
 
 /* Header Styles */
@@ -74,6 +74,7 @@ nav a {
     transition: color 0.3s ease-in-out;
 }
 
+/* Orange Sliding Line Below Links */
 nav a::after {
     content: '';
     position: absolute;
@@ -108,6 +109,7 @@ nav a:hover {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    font-family: 'Didot', serif;
 }
 
 .hero p {
@@ -133,14 +135,18 @@ nav a:hover {
     }
 }
 
+.section h2 {
+    position: relative;
+}
+
 .section h2::after {
     content: '';
     position: absolute;
-    width: 100%;
+    width: 0;
     height: 2px;
     background-color: var(--line-color);
     left: 0;
-    bottom: 0;
+    bottom: -5px;
     animation: slideIn 1s forwards;
 }
 
@@ -163,7 +169,6 @@ footer {
     background-color: var(--background-dark);
     color: var(--text-color);
     font-size: 0.875rem;
-    position: relative;
     width: 100%;
     margin-top: auto;
 }
