@@ -1,16 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
-   const redLines = document.querySelectorAll('.underline'); // Fix here
+    const redLines = document.querySelectorAll('.underline');
 
-   redLines.forEach(line => {
-     line.classList.add('animate');
-   });
-});
+    redLines.forEach(line => {
+        line.classList.add('animate');
+    });
 
-  // Dropdown functionality
-  const dropdown = document.querySelector('.dropdown');
-  const dropdownContent = document.querySelector('.dropdown-content');
-
-  dropdown.addEventListener('click', function() {
-    dropdownContent.classList.toggle('show');
-  });
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        dropdown.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+    });
 });
