@@ -21,10 +21,10 @@ body {
     min-height: 100vh;
 }
 
-/* Header: Only Covering Title */
+/* Header */
 header {
     background-color: var(--background-dark);
-    padding: 5px 0;
+    padding: 10px 0;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
@@ -34,11 +34,9 @@ header {
 header h1 a {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 2rem;
-    font-family: 'Didot', serif;
 }
 
-/* Navigation: Moved Outside of Header */
+/* Navigation */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -58,7 +56,7 @@ nav a {
     transition: color 0.3s ease-in-out;
 }
 
-/* Red Line: Under Text, Sliding */
+/* Red Line Under Text */
 nav a::after,
 .underline::after {
     content: '';
@@ -83,31 +81,10 @@ nav a:hover::after,
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Red Line Animation Fix */
-.section h2::after {
-    content: '';
-    position: absolute;
-    width: 0; /* Initial width is 0 */
-    height: 2px;
-    background-color: var(--line-color);
-    left: 0;
-    bottom: -5px;
-    animation: slideIn 1s forwards;
-}
-
-/* Slide-In Animation */
-@keyframes slideIn {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* Container for Centering Content */
+/* Container */
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -127,19 +104,4 @@ footer {
     color: var(--text-color);
     font-size: 0.875rem;
     margin-top: auto;
-}
-
-/* GFS Didot Font Class */
-.gfs-didot-regular {
-    font-family: "GFS Didot", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-/* Pathway Extreme Font */
-.pathway-extreme-custom {
-    font-family: "Pathway Extreme", sans-serif;
-    font-weight: 400;
-    font-optical-sizing: auto;
-    font-variation-settings: "wdth" 100;
 }
