@@ -10,7 +10,7 @@
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Pathway Extreme", sans-serif; /* Use Pathway Extreme */
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -22,16 +22,21 @@ body {
     min-height: 100vh;
 }
 
-/* Font Family Classes */
-.pathway-extreme-custom {
+/* Pathway Extreme Custom Styles */
+.pathway-extreme-hero {
     font-family: "Pathway Extreme", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
 }
 
-.didot {
-    font-family: 'Didot', serif; /* Using Didot for headings */
+.pathway-extreme-about,
+.pathway-extreme-portfolio,
+.pathway-extreme-contact {
+    font-family: "Pathway Extreme", sans-serif;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
 }
 
 /* Header Styles */
@@ -53,7 +58,7 @@ header h1 a {
     font-family: 'Didot', serif;
 }
 
-/* Navigation Styles (applied across all pages) */
+/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -109,7 +114,7 @@ nav a:hover {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    font-family: 'Didot', serif;
+    font-family: "Pathway Extreme", sans-serif; /* Using Pathway Extreme */
 }
 
 .hero p {
@@ -132,14 +137,6 @@ nav a:hover {
     bottom: -5px;
     animation: slideIn 1s forwards;
 }
-
-/* Remove this, we don't need redundant underline divs */
-/* .underline { 
-    width: 100%;
-    height: 4px;
-    background-color: var(--line-color);
-    margin: 10px 0 0;
-} */
 
 /* Slide-In Animation */
 @keyframes slideIn {
