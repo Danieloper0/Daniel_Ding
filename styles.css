@@ -10,7 +10,7 @@
 /* Body Styles */
 body {
     margin: 0;
-    font-family: "Pathway Extreme", sans-serif; /* Use Pathway Extreme as the default */
+    font-family: "Pathway Extreme", sans-serif; /* Default font */
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -32,22 +32,23 @@ body {
     position: relative;
 }
 
-/* Red line beneath 'Welcome to My World' */
+/* Adjust red line under 'Welcome to My World' */
 .underline {
-    width: 100px; /* Adjust the width to match the text's length */
+    width: 100%; /* Extend to match the text length */
+    max-width: 400px; /* Limit the width so it matches the text */
     height: 4px;
     background-color: var(--line-color);
     margin: 0 auto 20px;
     animation: slideInText 1s forwards;
 }
 
-/* Sliding red line under the text only */
+/* Sliding red line animation under the text */
 @keyframes slideInText {
     from {
         width: 0;
     }
     to {
-        width: 100px; /* Matches the width of the underline div */
+        width: 100%;
     }
 }
 
@@ -63,7 +64,7 @@ body {
 
 /* Padding for sections to add space */
 .section {
-    padding: 100px 20px; /* Increase the padding to add more space between sections */
+    padding: 100px 20px; /* Add more space between sections */
 }
 
 /* Header Styles */
@@ -126,6 +127,46 @@ nav a:hover {
     color: var(--highlight-color);
 }
 
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-bottom: 3px;
+    transition: color 0.3s ease-in-out;
+}
+
+.dropbtn:hover {
+    color: var(--highlight-color);
+}
+
+/* Dropdown Content (Hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--highlight-color);
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
@@ -138,51 +179,3 @@ nav a:hover {
     min-height: 60vh;
 }
 
-/* Slide-In Red Line for Section Headings */
-.section h2 {
-    position: relative;
-}
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--line-color);
-    left: 0;
-    bottom: -5px;
-    animation: slideIn 1s forwards;
-}
-
-/* Slide-In Animation */
-@keyframes slideIn {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%; /* Width of the text */
-    }
-}
-
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: var(--background-dark);
-    color: var(--text-color);
-    font-size: 0.875rem;
-    width: 100%;
-    margin-top: auto;
-}
