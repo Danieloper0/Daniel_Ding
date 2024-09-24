@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Daniel Ding | Website</title>
 
-    <!-- Embed Didot and Pathway Extreme fonts -->
+    <!-- Embed Fonts -->
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Didot&family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
     </style>
@@ -27,6 +27,15 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <!-- Dropdown -->
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">More</a>
+                    <div class="dropdown-content">
+                        <a href="#projects">Projects</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#tutorials">Tutorials</a>
+                    </div>
+                </li>
             </ul>
         </nav>
 
@@ -62,6 +71,14 @@
         <footer>
             <p>© 2024 Daniel Ding | All Rights Reserved</p>
         </footer>
+
+        <!-- JavaScript for Dropdown Menu -->
+        <script>
+            document.querySelector('.dropbtn').addEventListener('click', function() {
+                const dropdownContent = document.querySelector('.dropdown-content');
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+        </script>
     </div>
 </body>
 </html>
