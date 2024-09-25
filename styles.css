@@ -1,7 +1,16 @@
+:root {
+    --primary-color: #FFA500; /* Orange */
+    --background-dark: #111;
+    --background-darker: #000;
+    --text-color: #fff;
+    --highlight-color: #FF8C00; /* Darker orange for better contrast */
+    --line-color: red; /* Red color for sliding lines */
+}
+
 /* Body Styles */
 body {
     margin: 0;
-    font-family: 'Pathway Extreme', sans-serif;  /* Applying Pathway Extreme */
+    font-family: "Pathway Extreme", sans-serif; /* Default font */
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -13,23 +22,28 @@ body {
     min-height: 100vh;
 }
 
-/* Specific Styles for 'Welcome to My World' */
-.hero h1 {
-    font-family: 'GFS Didot', serif; /* Ensuring Didot font for this specific header */
+/* Didot Font for 'Welcome to My World' */
+.didot-hero {
+    font-family: 'Didot', serif;
     font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
     margin-bottom: 10px;
     position: relative;
 }
 
-.hero .underline {
-    width: 0;
-    height: 3px;
+/* Adjust red line under 'Welcome to My World' */
+.underline {
+    width: 100%; /* Extend to match the text length */
+    max-width: 400px; /* Limit the width so it matches the text */
+    height: 4px;
     background-color: var(--line-color);
-    margin: 10px auto 0;
-    animation: slideIn 1s forwards;
+    margin: 0 auto 20px;
+    animation: slideInText 1s forwards;
 }
 
-@keyframes slideIn {
+/* Sliding red line animation under the text */
+@keyframes slideInText {
     from {
         width: 0;
     }
@@ -38,37 +52,22 @@ body {
     }
 }
 
-/* Fixed the red line to cover the width of the text, not the entire page */
-.hero h1::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 3px;
-    background-color: red;
-    margin: 10px auto 0;
-    animation: slideIn 1s forwards;
+/* Pathway Extreme Custom Styles */
+.pathway-extreme-about,
+.pathway-extreme-portfolio,
+.pathway-extreme-contact {
+    font-family: "Pathway Extreme", sans-serif;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
 }
 
-/* Adjusted the padding between the titles */
-.section h2 {
-    padding: 40px 0;
-    font-size: 2rem;
-    text-align: center;
-    position: relative;
-    margin-bottom: 50px;
+/* Padding for sections to add space */
+.section {
+    padding: 100px 20px; /* Add more space between sections */
 }
 
-.section h2::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: var(--line-color);
-    margin: 0 auto;
-    animation: slideIn 1s forwards;
-}
-
-/* Fixed navigation issue across all pages */
+/* Header Styles */
 header {
     background-color: var(--background-dark);
     color: var(--primary-color);
@@ -78,10 +77,16 @@ header {
     font-weight: 600;
     width: 100%;
     border-bottom: 1px solid var(--primary-color);
-    position: relative;
-    z-index: 1000;
 }
 
+header h1 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: 'Didot', serif;
+}
+
+/* Navigation Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -89,8 +94,6 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 20px;
-    position: relative;
-    top: 10px; /* Ensures the links are below the header on all pages */
 }
 
 nav a {
@@ -104,6 +107,7 @@ nav a {
     transition: color 0.3s ease-in-out;
 }
 
+/* Orange Sliding Line Below Links */
 nav a::after {
     content: '';
     position: absolute;
@@ -123,13 +127,32 @@ nav a:hover {
     color: var(--highlight-color);
 }
 
-/* Dropdown Box Styling */
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding-bottom: 3px;
+    transition: color 0.3s ease-in-out;
+}
+
+.dropbtn:hover {
+    color: var(--highlight-color);
+}
+
+/* Dropdown Content (Hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: var(--background-dark);
+    background-color: #000;
     min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -138,13 +161,20 @@ nav a:hover {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: black;
 }
 
 .dropdown-content a:hover {
-    background-color: var(--primary-color); /* Orange hover effect */
+    background-color: var(--highlight-color);
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
 }
