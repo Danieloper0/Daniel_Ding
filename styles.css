@@ -10,7 +10,7 @@
 /* Body Styles */
 body {
     margin: 0;
-    font-family: "Pathway Extreme", sans-serif; /* Default font */
+    font-family: "Pathway Extreme", sans-serif;
     color: var(--text-color);
     background-color: var(--background-darker);
     background-image: radial-gradient(circle, #555 1px, transparent 1px);
@@ -177,4 +177,19 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     min-height: 60vh;
+}
+
+footer {
+    background-color: #333; /* Grey box */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin-top: auto; /* Pushes footer to bottom */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
 }
