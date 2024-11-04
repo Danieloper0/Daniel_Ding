@@ -9,14 +9,14 @@
 </head>
 <body>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>        
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
-        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>        
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
+        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
     </div>
     <!-- Design for CSS -->
     <style>
@@ -32,14 +32,15 @@
             height: 56vh;
             object-fit: cover;
             object-position: 100% 50%;
+            border-radius: 15px; 
         }
         #image-track {
             display: flex;
             gap: 4vmin;
-            position: absolute; /* Fixed spelling error */
+            position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%); /* Adjusted translate for centering */
+            transform: translate(0%, -50%); 
         }
     </style>
     <!-- Design for JavaScript -->
@@ -47,50 +48,31 @@
         const track = document.getElementById("image-track");
 
         window.onmousedown = e => {
-            track.dataset.mouseDownAt = e.clientX; // Fixed spelling error
+            track.dataset.mouseDownAt = e.clientX; 
         }
         
         window.onmouseup = () => {
-            track.dataset.mouseDownAt = "0"; // Changed from 'onMouseDownAt' to 'mouseDownAt'
+            track.dataset.mouseDownAt = "0"; 
             track.dataset.prevPercentage = track.dataset.percentage;
         }
         
         window.onmousemove = e => {
-            if(track.dataset.mouseDownAt === "0") return; // Fixed spelling error
+            if(track.dataset.mouseDownAt === "0") return; 
             
-            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX, // Fixed spelling error
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
                 maxDelta = window.innerWidth / 2;
 
             const percentage = (mouseDelta / maxDelta) * -100,
                 nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;  
-            track.dataset.percentage = Math.min(Math.max(nextPercentage, -100), 0); // Fixed Math.min and Math.max usage
+                
+            track.dataset.percentage = Math.min(Math.max(nextPercentage, -100), 0);
             
-            track.animate({
-                transform: `translate(${percentage}%, -50%)`
-            }, {duration: 1200, fill: "forwards" });
+            track.style.transform = `translate(${track.dataset.percentage}%, -50%)`; 
             
-            for(const image of track.getElementsByClassName("img")) { // Changed from 'image' to 'img' for consistency
-                image.animate({
-                    objectPosition: `${nextPercentage + 100} center`
-                }, {duration: 1200, fill: "forwards" });
+            for(const image of track.getElementsByClassName("img")) {
+                image.style.objectPosition = `${parseFloat(track.dataset.percentage) + 100}% center`; 
             }
         }
     </script>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+</html>
