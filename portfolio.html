@@ -71,14 +71,14 @@
             if (track.dataset.mouseDownAt === "0") return;
 
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-            const maxDelta = window.innerWidth; // Increase max delta for more fluid movement
+            const maxDelta = window.innerWidth;
 
-            // Amplify panning effect for dramatic start-to-end movement
+            // Amplify panning effect and extend range for all images
             let percentage = (mouseDelta / maxDelta) * -200;
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
-            // Remove constraints to allow free movement across all images
-            nextPercentage = Math.max(Math.min(nextPercentage, 0), -200); // Allow full drag range
+            // Expand drag range to allow movement across all images
+            nextPercentage = Math.max(Math.min(nextPercentage, 0), -400); // Adjusted range for all images
 
             // Animate the track movement
             track.dataset.percentage = nextPercentage;
@@ -87,10 +87,10 @@
                 { duration: 1200, fill: "forwards" }
             );
 
-            // Adjust each image's `objectPosition` for dramatic effect
+            // Apply parallax effect to all images
             for (const image of track.getElementsByClassName("img")) {
                 image.animate(
-                    { objectPosition: `${50 + nextPercentage * 2}% center` }, // Start from 50%, end at -150%
+                    { objectPosition: `${50 + nextPercentage * 1.5}% center` }, // Amplified for all images
                     { duration: 1200, fill: "forwards" }
                 );
             }
