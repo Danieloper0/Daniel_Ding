@@ -3,64 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Ding | Website</title>
+    <title>Daniel Ding | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1><a href="index.html">Daniel Ding</a></h1>
-        <nav>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <section id="portfolio">
-            <h2 class="title-line">My Portfolio</h2>
-            <p class="definition-line"><strong>Erudite ('er(y)əˌdīt'; Adj): Having or showing great knowledge or learning.</strong></p>
-
-            <!-- Dropdown for Academics -->
-            <div class="dropdown">
-                <button class="dropbtn">Academics &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#">All As in 7th grade</a>
-                    <a href="#">All As in 8th grade</a>
-                </div>
-            </div>
-
-            <!-- Dropdown for Extracurriculars -->
-            <div class="dropdown">
-                <button class="dropbtn">Extracurriculars &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#">Auditioned and entered orchestra</a>
-                    <a href="#">Upcoming violin recital</a>
-                    <a href="#">Joined Chess Club in my school.</a>
-                    <a href="#">Joined Computer Science Club in my school.</a>
-                    <a href="#">Joined a Basketball Team outside of school.</a>
-                    <a href="#">Joined a debate club outside of school.</a>
-                    <a href="#">And other extracurriculars coming soon...</a>
-                </div>
-            </div>
-
-            <!-- Dropdown for Creative Projects -->
-            <div class="dropdown">
-                <button class="dropbtn">Creative Projects &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#">Coming soon...</a>
-                </div>
-            </div>
-        </section>
+    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>        
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
+        <img class=img src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
     </div>
+    <!-- Design for CSS -->
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            margin: 0rem;
+            overflow: hidden;
+        }
+        #image-track .img {
+            width: 40vh;
+            height: 56vh;
+            object-fit: cover;
+            object-position: 100% 50%;
+        }
+        #image-track {
+            display: flex;
+            gap: 4vmin;
+            position: absolute; /* Fixed spelling error */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); /* Adjusted translate for centering */
+        }
+    </style>
+    <!-- Design for JavaScript -->
+    <script>
+        const track = document.getElementById("image-track");
 
-    <footer>
-        © 2024 Daniel Ding | All Rights Reserved
-    </footer>
+        window.onmousedown = e => {
+            track.dataset.mouseDownAt = e.clientX; // Fixed spelling error
+        }
+        
+        window.onmouseup = () => {
+            track.dataset.mouseDownAt = "0"; // Changed from 'onMouseDownAt' to 'mouseDownAt'
+            track.dataset.prevPercentage = track.dataset.percentage;
+        }
+        
+        window.onmousemove = e => {
+            if(track.dataset.mouseDownAt === "0") return; // Fixed spelling error
+            
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX, // Fixed spelling error
+                maxDelta = window.innerWidth / 2;
 
-    <script src="script.js"></script>
+            const percentage = (mouseDelta / maxDelta) * -100,
+                nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;  
+            track.dataset.percentage = Math.min(Math.max(nextPercentage, -100), 0); // Fixed Math.min and Math.max usage
+            
+            track.animate({
+                transform: `translate(${percentage}%, -50%)`
+            }, {duration: 1200, fill: "forwards" });
+            
+            for(const image of track.getElementsByClassName("img")) { // Changed from 'image' to 'img' for consistency
+                image.animate({
+                    objectPosition: `${nextPercentage + 100} center`
+                }, {duration: 1200, fill: "forwards" });
+            }
+        }
+    </script>
 </body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
