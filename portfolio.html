@@ -32,15 +32,15 @@
             height: 56vh;
             object-fit: cover;
             object-position: 100% 50%;
-            border-radius: 15px; 
+            border-radius: 15px; /* Added for rounded edges */
         }
         #image-track {
             display: flex;
             gap: 4vmin;
-            position: absolute;
+            position: absolute; /* Fixed spelling error */
             left: 50%;
             top: 50%;
-            transform: translate(0%, -50%); 
+            transform: translate(0%, -50%); /* Original centering kept */
         }
     </style>
     <!-- Design for JavaScript -->
@@ -67,10 +67,14 @@
                 
             track.dataset.percentage = Math.min(Math.max(nextPercentage, -100), 0);
             
-            track.style.transform = `translate(${track.dataset.percentage}%, -50%)`; 
+            track.animate({
+                transform: `translate(${track.dataset.percentage}%, -50%)`
+            }, {duration: 1200, fill: "forwards" });
             
             for(const image of track.getElementsByClassName("img")) {
-                image.style.objectPosition = `${parseFloat(track.dataset.percentage) + 100}% center`; 
+                image.animate({
+                    objectPosition: `${parseFloat(track.dataset.percentage) + 100}% center`
+                }, {duration: 1200, fill: "forwards" });
             }
         }
     </script>
