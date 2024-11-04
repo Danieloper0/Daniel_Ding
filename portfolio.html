@@ -9,14 +9,30 @@
 </head>
 <body>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>        
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
-        <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
+        </div>
+        <div class="img-container">
+            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
+        </div>
     </div>
 
     <style>
@@ -28,17 +44,7 @@
             overflow: hidden;
             user-select: none; /* Prevents selection */
         }
-        
-        #image-track .img {
-            width: 40vh;
-            height: 56vh;
-            object-fit: cover;
-            object-position: 50% center; /* Start from center */
-            border-radius: 15px;
-            pointer-events: none; /* Prevents highlight */
-            user-select: none; /* Prevents selection on images */
-        }
-        
+
         #image-track {
             display: flex;
             gap: 4vmin;
@@ -47,6 +53,22 @@
             top: 50%;
             transform: translate(-50%, -50%);
             cursor: grab;
+        }
+
+        .img-container {
+            width: 40vh;
+            height: 56vh;
+            overflow: hidden; /* Ensure images are clipped within container */
+            border-radius: 15px;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% center; /* Start from center */
+            user-select: none; /* Prevents selection on images */
+            transition: object-position 0.2s ease; /* Smooth transition for small mouse adjustments */
         }
     </style>
 
@@ -73,12 +95,12 @@
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
             const maxDelta = window.innerWidth;
 
-            // Amplify panning effect and extend range for all images
+            // Amplify panning effect
             let percentage = (mouseDelta / maxDelta) * -200;
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
-            // Expand drag range to allow movement across all images
-            nextPercentage = Math.max(Math.min(nextPercentage, 0), -400); // Adjusted range for all images
+            // Adjust range to allow movement across all images
+            nextPercentage = Math.max(Math.min(nextPercentage, 0), -400);
 
             // Animate the track movement
             track.dataset.percentage = nextPercentage;
@@ -87,10 +109,10 @@
                 { duration: 1200, fill: "forwards" }
             );
 
-            // Apply parallax effect to all images
+            // Apply parallax effect to each image within its container
             for (const image of track.getElementsByClassName("img")) {
                 image.animate(
-                    { objectPosition: `${50 + nextPercentage * 1.5}% center` }, // Amplified for all images
+                    { objectPosition: `${50 + nextPercentage * 1.5}% center` }, // Start from center (50%) and shift with drag
                     { duration: 1200, fill: "forwards" }
                 );
             }
