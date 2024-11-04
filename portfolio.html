@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ding | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Centered Crosshair -->
+    <div id="crosshair"></div>
+
+    <!-- Image Track with Parallax Images -->
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
         <div class="img-container">
             <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
@@ -36,6 +39,37 @@
     </div>
 
     <style>
+        /* Crosshair Styling */
+        #crosshair {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            z-index: 10; /* Ensures crosshair is above images */
+        }
+        #crosshair::before,
+        #crosshair::after {
+            content: "";
+            position: absolute;
+            background-color: white;
+        }
+        #crosshair::before {
+            width: 20px;
+            height: 2px;
+            left: -9px;
+            top: 0;
+        }
+        #crosshair::after {
+            width: 2px;
+            height: 20px;
+            left: 0;
+            top: -9px;
+        }
+
+        /* Basic Styling */
         body {
             height: 100vh;
             width: 100vw;
@@ -95,8 +129,8 @@
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
             const maxDelta = window.innerWidth;
 
-            // Amplify panning effect
-            let percentage = (mouseDelta / maxDelta) * -200;
+            // Slower dragging effect by reducing percentage multiplier
+            let percentage = (mouseDelta / maxDelta) * -100; // Reduced from -200 for slower drag
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
             // Adjust range to allow movement across all images
