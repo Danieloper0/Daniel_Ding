@@ -69,93 +69,78 @@
             top: -14px;
         }
 
-        /* Basic Styling */
         body {
-            height: 100vh;
-            width: 100vw;
-            background-color: black;
-            margin: 0;
-            overflow: hidden;
-            user-select: none; /* Prevents selection */
+          height: 100vh;
+          width: 100vw;
+          background-color: black;
+          margin: 0rem;
+          overflow: hidden;
         }
-
+        
         #image-track {
-            display: flex;
-            gap: 4vmin;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            cursor: grab;
+          display: flex;
+          gap: 4vmin;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(0%, -50%); 
+          user-select: none; /* -- Prevent image highlighting -- */
         }
-
-        .img-container {
-            width: 40vh;
-            height: 56vh;
-            overflow: hidden; /* Ensure images are clipped within container */
-            border-radius: 15px;
-        }
-
-        .last-image {
-            border-radius: 50px; /* Fully rounded border for the last image */
-        }
-
-        .img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% center; /* Start from center */
-            user-select: none; /* Prevents selection on images */
-            transition: object-position 0.2s ease; /* Smooth transition for small mouse adjustments */
+        
+        #image-track > .image {
+          width: 40vmin;
+          height: 56vmin;
+          object-fit: cover;
+          object-position: 100% center;
         }
     </style>
 
     <script>
-        const track = document.getElementById("image-track");
-
-        // Mouse down - start tracking
-        window.onmousedown = e => {
-            track.dataset.mouseDownAt = e.clientX;
-            track.style.cursor = "grabbing";
-        };
-
-        // Mouse up - stop tracking
-        window.onmouseup = () => {
-            track.dataset.mouseDownAt = "0";
-            track.dataset.prevPercentage = track.dataset.percentage;
-            track.style.cursor = "grab";
-        };
-
-        // Mouse move - update based on drag
-        window.onmousemove = e => {
-            if (track.dataset.mouseDownAt === "0") return;
-
-            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-            const maxDelta = window.innerWidth;
-
-            // Slower dragging effect by reducing percentage multiplier
-            let percentage = (mouseDelta / maxDelta) * -100; // Reduced from -200 for slower drag
-            let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-
-            // Limit dragging to the range of all images (prevents infinite scrolling)
-            const minPercentage = -((track.children.length - 1) * 100 / track.children.length);
-            nextPercentage = Math.max(Math.min(nextPercentage, 0), minPercentage);
-
-            // Animate the track movement
-            track.dataset.percentage = nextPercentage;
-            track.animate(
-                { transform: `translate(${nextPercentage}%, -50%)` },
-                { duration: 1200, fill: "forwards" }
-            );
-
-            // Apply parallax effect to each image within its container
-            for (const image of track.getElementsByClassName("img")) {
-                image.animate(
-                    { objectPosition: `${50 + nextPercentage * 1.5}% center` }, // Start from center (50%) and shift with drag
-                    { duration: 1200, fill: "forwards" }
-                );
-            }
-        };
+    const track = document.getElementById("image-track");
+    
+    const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+    
+    const handleOnUp = () => {
+      track.dataset.mouseDownAt = "0";  
+      track.dataset.prevPercentage = track.dataset.percentage;
+    }
+    
+    const handleOnMove = e => {
+      if(track.dataset.mouseDownAt === "0") return;
+      
+      const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+            maxDelta = window.innerWidth / 2;
+      
+      const percentage = (mouseDelta / maxDelta) * -100,
+            nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+            nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+      
+      track.dataset.percentage = nextPercentage;
+      
+      track.animate({
+        transform: `translate(${nextPercentage}%, -50%)`
+      }, { duration: 1200, fill: "forwards" });
+      
+      for(const image of track.getElementsByClassName("image")) {
+        image.animate({
+          objectPosition: `${100 + nextPercentage}% center`
+        }, { duration: 1200, fill: "forwards" });
+      }
+    }
+    
+    /* -- Had to add extra lines for touch events -- */
+    
+    window.onmousedown = e => handleOnDown(e);
+    
+    window.ontouchstart = e => handleOnDown(e.touches[0]);
+    
+    window.onmouseup = e => handleOnUp(e);
+    
+    window.ontouchend = e => handleOnUp(e.touches[0]);
+    
+    window.onmousemove = e => handleOnMove(e);
+    
+    window.ontouchmove = e => handleOnMove(e.touches[0]);
     </script>
 </body>
 </html>
