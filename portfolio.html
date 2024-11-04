@@ -33,7 +33,7 @@
         <div class="img-container">
             <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
         </div>
-        <div class="img-container">
+        <div class="img-container last-image">
             <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1728010487/IMG_5309_moiikl.jpg" draggable="false"/>
         </div>
     </div>
@@ -45,8 +45,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 2px;
-            height: 2px;
+            width: 1px;
+            height: 1px;
             background-color: white;
             z-index: 10; /* Ensures crosshair is above images */
         }
@@ -57,16 +57,16 @@
             background-color: white;
         }
         #crosshair::before {
-            width: 20px;
-            height: 2px;
-            left: -9px;
+            width: 30px; /* Longer crosshair */
+            height: 1px; /* Thinner crosshair */
+            left: -14px;
             top: 0;
         }
         #crosshair::after {
-            width: 2px;
-            height: 20px;
+            width: 1px; /* Thinner crosshair */
+            height: 30px; /* Longer crosshair */
             left: 0;
-            top: -9px;
+            top: -14px;
         }
 
         /* Basic Styling */
@@ -94,6 +94,10 @@
             height: 56vh;
             overflow: hidden; /* Ensure images are clipped within container */
             border-radius: 15px;
+        }
+
+        .last-image {
+            border-radius: 50px; /* Fully rounded border for the last image */
         }
 
         .img {
@@ -133,8 +137,9 @@
             let percentage = (mouseDelta / maxDelta) * -100; // Reduced from -200 for slower drag
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
 
-            // Adjust range to allow movement across all images
-            nextPercentage = Math.max(Math.min(nextPercentage, 0), -400);
+            // Limit dragging to the range of all images (prevents infinite scrolling)
+            const minPercentage = -((track.children.length - 1) * 100 / track.children.length);
+            nextPercentage = Math.max(Math.min(nextPercentage, 0), minPercentage);
 
             // Animate the track movement
             track.dataset.percentage = nextPercentage;
