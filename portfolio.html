@@ -33,7 +33,7 @@
             width: 40vh;
             height: 56vh;
             object-fit: cover;
-            object-position: 100% 50%;
+            object-position: 50% center; /* Start from center */
             border-radius: 15px;
             pointer-events: none; /* Prevents highlight */
             user-select: none; /* Prevents selection on images */
@@ -71,12 +71,14 @@
             if (track.dataset.mouseDownAt === "0") return;
 
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
-            const maxDelta = window.innerWidth; // Increase max delta for faster movement
+            const maxDelta = window.innerWidth; // Increase max delta for more fluid movement
 
-            // Amplify the panning effect by increasing percentage calculation
-            let percentage = (mouseDelta / maxDelta) * -200; 
+            // Amplify panning effect for dramatic start-to-end movement
+            let percentage = (mouseDelta / maxDelta) * -200;
             let nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-            nextPercentage = Math.min(Math.max(nextPercentage, -100), 0);
+
+            // Remove constraints to allow free movement across all images
+            nextPercentage = Math.max(Math.min(nextPercentage, 0), -200); // Allow full drag range
 
             // Animate the track movement
             track.dataset.percentage = nextPercentage;
@@ -85,10 +87,10 @@
                 { duration: 1200, fill: "forwards" }
             );
 
-            // Adjust object position for each image with amplified panning effect
+            // Adjust each image's `objectPosition` for dramatic effect
             for (const image of track.getElementsByClassName("img")) {
                 image.animate(
-                    { objectPosition: `${100 + nextPercentage * 1.5}% center` },
+                    { objectPosition: `${50 + nextPercentage * 2}% center` }, // Start from 50%, end at -150%
                     { duration: 1200, fill: "forwards" }
                 );
             }
