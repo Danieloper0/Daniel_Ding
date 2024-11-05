@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ding | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Centered Crosshair -->
-    <div id="crosshair"></div>
-
-    <!-- Image Track with Parallax Images -->
-        <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-          <img class="image" src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?q=80&w=3254&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1684965344594-98ffe1efb1b6?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1527515047028-10b18ca90f24?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1476979735039-2fdea9e9e407?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-          <img class="image" src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
-        </div>
-
-
-    
-    <div id="header-container">
-        <h1 data-value="Daniel Ding">Daniel Ding</h1>
-    </div>
-
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
-        /* Crosshair styles */
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Section Container Styling */
+        body {
+            overflow: hidden;
+            scroll-behavior: smooth;
+            background-color: rgb(10, 10, 10);
+            color: white;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            position: relative;
+        }
+
+        /* Crosshair Styling for Section 1 */
         #crosshair {
             position: fixed;
             top: 50%;
@@ -59,14 +62,7 @@
             top: -14px;
         }
 
-        /* Main body and image track */
-        body {
-            height: 100vh;
-            width: 100vw;
-            background-color: black;
-            margin: 0;
-            overflow-x: hidden;
-        }
+        /* Image Track Styling for Section 1 */
         #image-track {
             display: flex;
             gap: 2vmin;
@@ -83,33 +79,116 @@
             object-position: 100% center;
         }
 
-        /* Header styles */
+        /* Header Styling for Section 2 */
         #header-container {
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            background-color: black;
-            position: relative;
-            top: 100vh; /* Positioned below the initial viewport */
-            overflow: hidden;
+            text-align: center;
         }
         h1 {
-            font-family: 'Space Mono', monospace;
             font-size: clamp(3rem, 10vw, 10rem);
             color: white;
-            padding: 0 clamp(1rem, 2vw, 3rem);
-            border-radius: clamp(0.4rem, 0.75vw, 1rem);
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
         }
-        h1:hover {
-            background-color: white;
-            color: black;
+
+        /* "Off the Wall" Navigation Styling for Section 3 */
+        #nav {
+            display: flex;
+            flex-direction: column;
+            padding: clamp(1rem, 5vw, 6rem);
+            margin-top: 20vh;
+        }
+        #nav a {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: clamp(3rem, 8vw, 10rem);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+        #nav a:hover {
+            color: white;
+        }
+        #nav a > span {
+            display: block;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            position: relative;
+            z-index: 2;
+        }
+        #nav a:hover > span {  
+            border-top-color: white;
+            border-bottom-color: white;
+        }
+        #nav a > img {
+            position: absolute;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+            transition: transform 250ms, opacity 250ms;
+            pointer-events: none;
+            width: min(40vw, 500px);
+        }
+        #nav a:hover > img {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
     </style>
+</head>
+<body>
+
+    <!-- Section 1: Image Track with Parallax -->
+    <section id="section1">
+        <div id="crosshair"></div>
+        <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+            <!-- Images for the parallax effect -->
+            <img class="image" src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?q=80&w=3254&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1684965344594-98ffe1efb1b6?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1527515047028-10b18ca90f24?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1476979735039-2fdea9e9e407?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+        </div>
+    </section>
+
+    <!-- Section 2: Hacked Text Effect -->
+    <section id="section2">
+        <div id="header-container">
+            <h1 data-value="Daniel Ding">Daniel Ding</h1>
+        </div>
+    </section>
+
+    <!-- Section 3: Off the Wall Navigation -->
+    <section id="section3">
+        <nav id="nav">
+            <a href="#"><span>I Can</span><img src="https://images.unsplash.com/photo-1660167941111-f7ccce818728?auto=format&fit=crop&w=800&q=60" /></a>
+            <a href="#"><span>Show</span><img src="https://images.unsplash.com/photo-1660070918769-f34c724cfe43?auto=format&fit=crop&w=800&q=60" /></a>
+            <a href="#"><span>You</span><img src="https://images.unsplash.com/photo-1660169376132-409f66fedcee?auto=format&fit=crop&w=800&q=60" /></a>
+            <a href="#"><span>My</span><img src="https://images.unsplash.com/photo-1660201367471-9fc0cb34734f?auto=format&fit=crop&w=800&q=60" /></a>
+            <a href="#"><span>World</span><img src="https://images.unsplash.com/photo-1660158847730-e93a2a96ca59?auto=format&fit=crop&w=800&q=60" /></a>
+        </nav>
+    </section>
 
     <script>
-        // Image track functionality
+        // Scroll snapping logic for sections
+        const sections = document.querySelectorAll("section");
+        let currentIndex = 0;
+
+        const scrollToSection = (index) => {
+            sections[index].scrollIntoView({ behavior: "smooth" });
+            currentIndex = index;
+        };
+
+        window.addEventListener("wheel", (e) => {
+            if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+                scrollToSection(currentIndex + 1);
+            } else if (e.deltaY < 0 && currentIndex > 0) {
+                scrollToSection(currentIndex - 1);
+            }
+        });
+
+        // Image track parallax functionality
         const track = document.getElementById("image-track");
-        
+
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
         
         const handleOnUp = () => {
@@ -138,19 +217,24 @@
                     objectPosition: `${100 + nextPercentage}% center`
                 }, { duration: 1200, fill: "forwards" });
             }
-        }
+        };
         
         window.onmousedown = handleOnDown;
         window.onmouseup = handleOnUp;
         window.onmousemove = handleOnMove;
 
-        // Smooth scroll effect for header on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = Math.min(window.scrollY / window.innerHeight, 1);
-            document.getElementById('header-container').style.transform = `translateY(${100 - scrollPercentage * 100}vh)`;
-        });
+        // Off the Wall Navigation Mouse Tracking
+        const nav = document.getElementById("nav");
+        for(const link of nav.getElementsByTagName("a")) {  
+            link.onmousemove = e => {
+                const rect = link.getBoundingClientRect(),    
+                      img = link.querySelector("img");
+                img.style.left = `${e.clientX - rect.left}px`;
+                img.style.top = `${e.clientY - rect.top}px`;
+            };
+        }
 
-        // H1 hover text scramble effect
+        // Restore original Hacker Text Effect
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
 
@@ -176,6 +260,5 @@
             }, 30);
         };
     </script>
-    
 </body>
 </html>
