@@ -11,35 +11,20 @@
     <div id="crosshair"></div>
 
     <!-- Image Track with Parallax Images -->
-    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684462/photo-1471897488648-5eae4ac6686b_ltqcge.jpg" draggable="false"/>
+        <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+          <img class="image" src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?q=80&w=3254&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1684965344594-98ffe1efb1b6?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1527515047028-10b18ca90f24?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1476979735039-2fdea9e9e407?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
+          <img class="image" src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" draggable="false" />
         </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684530/photo-1525547719571-a2d4ac8945e2_vtntlo.jpg" draggable="false"/>
-        </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684559/photo-1492563817904-5f1dc687974f_dvezdj.jpg" draggable="false"/>
-        </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684583/photo-1694857887769-6ff4c0ef9372_aeco9w.jpg" draggable="false"/>
-        </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684609/photo-1579487685737-e435a87b2518_ffwma2.jpg" draggable="false"/>
-        </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684646/photo-1505852331468-7cc14e768362_kfq9y3.jpg" draggable="false"/>
-        </div>
-        <div class="img-container">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730684666/premium_photo-1721762724239-e5fbfc8ef3c1_tbkjga.jpg" draggable="false"/>
-        </div>
-        <div class="img-container last-image">
-            <img class="img" src="https://res.cloudinary.com/de2xaykeq/image/upload/v1730738334/photo-1529699211952-734e80c4d42b_wlsnzo.jpg" draggable="false"/>
-        </div>
-    </div>
 
+
+    
     <style>
-        /* Crosshair Styling */
         #crosshair {
             position: fixed;
             top: 50%;
@@ -48,7 +33,7 @@
             width: 1px;
             height: 1px;
             background-color: white;
-            z-index: 10; /* Ensures crosshair is above images */
+            z-index: 10;
         }
         #crosshair::before,
         #crosshair::after {
@@ -69,47 +54,36 @@
             top: -14px;
         }
 
-        /* Basic Styling */
+        
         body {
-            height: 100vh;
-            width: 100vw;
-            background-color: black;
-            margin: 0;
-            overflow: hidden;
-            user-select: none; /* Prevents selection */
+          height: 100vh;
+          width: 100vw;
+          background-color: black;
+          margin: 0rem;
+          overflow: hidden;
         }
-
+        
         #image-track {
-            display: flex;
-            gap: 4vmin;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            cursor: grab;
+          display: flex;
+          gap: 4vmin;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(0%, -50%); 
+          user-select: none; /* -- Prevent image highlighting -- */
+        }
+        
+        #image-track > .image {
+          width: 40vmin;
+          height: 56vmin;
+          object-fit: cover;
+          object-position: 100% center;
         }
 
-        .img-container {
-            width: 40vh;
-            height: 56vh;
-            overflow: hidden; /* Ensure images are clipped within container */
-            border-radius: 15px;
-        }
-
-        .last-image {
-            border-radius: 50px; /* Fully rounded border for the last image */
-        }
-
-        .img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% center; /* Start from center */
-            user-select: none; /* Prevents selection on images */
-            transition: object-position 0.2s ease; /* Smooth transition for small mouse adjustments */
-        }
     </style>
 
+
+    
     <script>
         const track = document.getElementById("image-track");
         
@@ -142,64 +116,20 @@
             }, { duration: 1200, fill: "forwards" });
           }
         }
+        
+        /* -- Had to add extra lines for touch events -- */
+        
+        window.onmousedown = e => handleOnDown(e);
+        
+        window.ontouchstart = e => handleOnDown(e.touches[0]);
+        
+        window.onmouseup = e => handleOnUp(e);
+        
+        window.ontouchend = e => handleOnUp(e.touches[0]);
+        
+        window.onmousemove = e => handleOnMove(e);
+        
+        window.ontouchmove = e => handleOnMove(e.touches[0]);
     </script>
-
-    <h1 data-type="Daniel Ding">Daniel Ding</h1>
-    <style>
-        body {
-          display: grid;
-          place-items: center;
-          height: 100vh;
-          background-color: black;
-          margin: 0rem;
-          overflow: hidden;
-        }
-        
-        h1 {
-          font-family: 'Space Mono', monospace;
-          font-size: clamp(3rem, 10vw, 10rem);
-          color: white;
-          padding: 0rem clamp(1rem, 2vw, 3rem);
-          border-radius: clamp(0.4rem, 0.75vw, 1rem);
-        }
-        
-        h1:hover {
-          background-color: white;
-          color: black;
-        }
-
-    </style>
-    
-    <script>
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
-        let interval = null;
-        
-        document.querySelector("h1").onmouseover = event => {  
-          let iteration = 0;
-          
-          clearInterval(interval);
-          
-          interval = setInterval(() => {
-            event.target.innerText = event.target.innerText
-              .split("")
-              .map((letter, index) => {
-                if(index < iteration) {
-                  return event.target.dataset.value[index];
-                }
-              
-                return letters[Math.floor(Math.random() * 26)]
-              })
-              .join("");
-            
-            if(iteration >= event.target.dataset.value.length){ 
-              clearInterval(interval);
-            }
-            
-            iteration += 1 / 3;
-          }, 30);
-        }
-
-    </script>    
 </body>
 </html>
