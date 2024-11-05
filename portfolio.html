@@ -24,7 +24,12 @@
 
 
     
+    <div id="header-container">
+        <h1 data-value="Daniel Ding">Daniel Ding</h1>
+    </div>
+
     <style>
+        /* Crosshair styles */
         #crosshair {
             position: fixed;
             top: 50%;
@@ -42,94 +47,135 @@
             background-color: white;
         }
         #crosshair::before {
-            width: 30px; /* Longer crosshair */
-            height: 1px; /* Thinner crosshair */
+            width: 30px;
+            height: 1px;
             left: -14px;
             top: 0;
         }
         #crosshair::after {
-            width: 1px; /* Thinner crosshair */
-            height: 30px; /* Longer crosshair */
+            width: 1px;
+            height: 30px;
             left: 0;
             top: -14px;
         }
 
-        
+        /* Main body and image track */
         body {
-          height: 100vh;
-          width: 100vw;
-          background-color: black;
-          margin: 0rem;
-          overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            margin: 0;
+            overflow-x: hidden;
         }
-        
         #image-track {
-          display: flex;
-          gap: 4vmin;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(0%, -50%); 
-          user-select: none; /* -- Prevent image highlighting -- */
+            display: flex;
+            gap: 2vmin;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(0%, -50%); 
+            user-select: none;
         }
-        
         #image-track > .image {
-          width: 40vmin;
-          height: 56vmin;
-          object-fit: cover;
-          object-position: 100% center;
+            width: 40vmin;
+            height: 56vmin;
+            object-fit: cover;
+            object-position: 100% center;
         }
 
+        /* Header styles */
+        #header-container {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background-color: black;
+            position: relative;
+            top: 100vh; /* Positioned below the initial viewport */
+            overflow: hidden;
+        }
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(3rem, 10vw, 10rem);
+            color: white;
+            padding: 0 clamp(1rem, 2vw, 3rem);
+            border-radius: clamp(0.4rem, 0.75vw, 1rem);
+        }
+        h1:hover {
+            background-color: white;
+            color: black;
+        }
     </style>
 
-
-    
     <script>
+        // Image track functionality
         const track = document.getElementById("image-track");
         
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
         
         const handleOnUp = () => {
-          track.dataset.mouseDownAt = "0";  
-          track.dataset.prevPercentage = track.dataset.percentage;
+            track.dataset.mouseDownAt = "0";  
+            track.dataset.prevPercentage = track.dataset.percentage;
         }
         
         const handleOnMove = e => {
-          if(track.dataset.mouseDownAt === "0") return;
-          
-          const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 2;
-          
-          const percentage = (mouseDelta / maxDelta) * -80,
-                nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-          
-          track.dataset.percentage = nextPercentage;
-          
-          track.animate({
-            transform: `translate(${nextPercentage}%, -50%)`
-          }, { duration: 1200, fill: "forwards" });
-          
-          for(const image of track.getElementsByClassName("image")) {
-            image.animate({
-              objectPosition: `${100 + nextPercentage}% center`
+            if (track.dataset.mouseDownAt === "0") return;
+            
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                  maxDelta = window.innerWidth / 2;
+            
+            const percentage = (mouseDelta / maxDelta) * -78,
+                  nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+                  nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+            
+            track.dataset.percentage = nextPercentage;
+            
+            track.animate({
+                transform: `translate(${nextPercentage}%, -50%)`
             }, { duration: 1200, fill: "forwards" });
-          }
+            
+            for (const image of track.getElementsByClassName("image")) {
+                image.animate({
+                    objectPosition: `${100 + nextPercentage}% center`
+                }, { duration: 1200, fill: "forwards" });
+            }
         }
         
-        /* -- Had to add extra lines for touch events -- */
-        
-        window.onmousedown = e => handleOnDown(e);
-        
-        window.ontouchstart = e => handleOnDown(e.touches[0]);
-        
-        window.onmouseup = e => handleOnUp(e);
-        
-        window.ontouchend = e => handleOnUp(e.touches[0]);
-        
-        window.onmousemove = e => handleOnMove(e);
-        
-        window.ontouchmove = e => handleOnMove(e.touches[0]);
+        window.onmousedown = handleOnDown;
+        window.onmouseup = handleOnUp;
+        window.onmousemove = handleOnMove;
+
+        // Smooth scroll effect for header on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = Math.min(window.scrollY / window.innerHeight, 1);
+            document.getElementById('header-container').style.transform = `translateY(${100 - scrollPercentage * 100}vh)`;
+        });
+
+        // H1 hover text scramble effect
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let interval = null;
+
+        document.querySelector("h1").onmouseover = event => {  
+            let iteration = 0;
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                event.target.innerText = event.target.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if (index < iteration) {
+                            return event.target.dataset.value[index];
+                        }
+                        return letters[Math.floor(Math.random() * 26)];
+                    })
+                    .join("");
+                
+                if (iteration >= event.target.dataset.value.length) { 
+                    clearInterval(interval);
+                }
+                iteration += 1 / 3;
+            }, 30);
+        };
     </script>
+    
 </body>
 </html>
