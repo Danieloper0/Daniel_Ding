@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ding | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
@@ -18,7 +18,7 @@
         body {
             overflow: hidden;
             scroll-behavior: smooth;
-            background-color: rgb(10, 10, 10);
+            background-color: black;
             color: white;
             font-family: "Open Sans", sans-serif;
         }
@@ -78,79 +78,62 @@
             object-fit: cover;
             object-position: 100% center;
         }
-        /* Hacked Text Effect */
+
+        /* Glowing Blob Effect Styling for Section 2 */
         body {
-          display: grid;
-          place-items: center;
-          height: 100vh;
-          background-color: black;
-          margin: 0rem;
-          overflow: hidden;
-        }
-        
-        h1 {
-          font-family: 'Space Mono', monospace;
-          font-size: clamp(3rem, 10vw, 10rem);
-          color: white;
-          padding: 0rem clamp(1rem, 2vw, 3rem);
-          border-radius: clamp(0.4rem, 0.75vw, 1rem);
-        }
-        
-        h1:hover {
-          background-color: white;
-          color: black;
-        }
-        
-        /* Header Styling for Section 2 */
-        #header-container {
-            text-align: center;
-        }
-        h1 {
-            font-size: clamp(3rem, 10vw, 10rem);
-            color: white;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
         }
 
-        /* "Off the Wall" Navigation Styling for Section 3 */
-        #nav {
-            display: flex;
-            flex-direction: column;
-            padding: clamp(1rem, 5vw, 6rem);
-            margin-top: 20vh;
+        @keyframes rotate {
+            from {
+                rotate: 0deg;
+            }
+            50% {
+                scale: 1 1.5;
+            }
+            to {
+                rotate: 360deg;
+            }
         }
-        #nav a {
-            color: rgba(255, 255, 255, 0.25);
-            font-size: clamp(3rem, 8vw, 10rem);
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s;
-        }
-        #nav a:hover {
-            color: white;
-        }
-        #nav a > span {
-            display: block;
-            border-top: 1px solid transparent;
-            border-bottom: 1px solid transparent;
-            position: relative;
-            z-index: 2;
-        }
-        #nav a:hover > span {  
-            border-top-color: white;
-            border-bottom-color: white;
-        }
-        #nav a > img {
+
+        #blob {
+            background-color: white;
+            height: 34vmax;
+            aspect-ratio: 1;
             position: absolute;
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.5);
-            transition: transform 250ms, opacity 250ms;
-            pointer-events: none;
-            width: min(40vw, 500px);
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+            border-radius: 50%;
+            background: linear-gradient(to right, aquamarine, mediumpurple);
+            animation: rotate 20s infinite;
+            opacity: 0.8;
         }
-        #nav a:hover > img {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+
+        #blur {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+            backdrop-filter: blur(12vmax);
+        }
+
+        h1 {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(3rem, 10vw, 10rem);
+            color: white;
+            white-space: nowrap;
+            padding: 0rem clamp(1rem, 2vw, 3rem);
+            border-radius: clamp(0.4rem, 0.75vw, 1rem);
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+            z-index: 3;
         }
     </style>
 </head>
@@ -172,22 +155,11 @@
         </div>
     </section>
 
-    <!-- Section 2: Hacked Text Effect -->
+    <!-- Section 2: Glowing Blob Effect with Text -->
     <section id="section2">
-        <div id="header-container">
-            <h1 data-value="Daniel Ding">Daniel Ding</h1>
-        </div>
-    </section>
-
-    <!-- Section 3: Off the Wall Navigation -->
-    <section id="section3">
-        <nav id="nav">
-            <a href="#"><span>I Can</span><img src="https://images.unsplash.com/photo-1660167941111-f7ccce818728?auto=format&fit=crop&w=800&q=60" /></a>
-            <a href="#"><span>Show</span><img src="https://images.unsplash.com/photo-1660070918769-f34c724cfe43?auto=format&fit=crop&w=800&q=60" /></a>
-            <a href="#"><span>You</span><img src="https://images.unsplash.com/photo-1660169376132-409f66fedcee?auto=format&fit=crop&w=800&q=60" /></a>
-            <a href="#"><span>My</span><img src="https://images.unsplash.com/photo-1660201367471-9fc0cb34734f?auto=format&fit=crop&w=800&q=60" /></a>
-            <a href="#"><span>World</span><img src="https://images.unsplash.com/photo-1660158847730-e93a2a96ca59?auto=format&fit=crop&w=800&q=60" /></a>
-        </nav>
+        <div id="blob"></div>
+        <div id="blur"></div>
+        <h1 data-value="Daniel Ding">Daniel Ding</h1>
     </section>
 
     <script>
@@ -245,25 +217,27 @@
         window.onmouseup = handleOnUp;
         window.onmousemove = handleOnMove;
 
-        // Off the Wall Navigation Mouse Tracking
-        const nav = document.getElementById("nav");
-        for(const link of nav.getElementsByTagName("a")) {  
-            link.onmousemove = e => {
-                const rect = link.getBoundingClientRect(),    
-                      img = link.querySelector("img");
-                img.style.left = `${e.clientX - rect.left}px`;
-                img.style.top = `${e.clientY - rect.top}px`;
-            };
-        }
+        // Glowing Blob Effect
+        const blob = document.getElementById("blob");
 
-        // Restore original Hacker Text Effect
+        window.onpointermove = event => { 
+            const { clientX, clientY } = event;
+            
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 3000, fill: "forwards" });
+        };
+
+        // Animated Text Effect on Hover
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
+        const h1 = document.querySelector("h1");
 
-        document.querySelector("h1").onmouseover = event => {  
+        h1.onmouseover = event => {  
             let iteration = 0;
             clearInterval(interval);
-
+            
             interval = setInterval(() => {
                 event.target.innerText = event.target.innerText
                     .split("")
