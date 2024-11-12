@@ -16,7 +16,6 @@
 
         /* Section Container Styling */
         body {
-            overflow: hidden;
             scroll-behavior: smooth;
             background-color: black;
             color: white;
@@ -80,13 +79,6 @@
         }
 
         /* Glowing Blob Effect Styling for Section 2 */
-        body {
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            background-color: black;
-        }
-
         @keyframes rotate {
             from {
                 rotate: 0deg;
@@ -135,6 +127,152 @@
             translate: -50% -50%;
             z-index: 3;
         }
+
+        /* Section 3 Styling */
+        #section3 {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+        }
+
+        /* Typing Effect Styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .container p {
+            font-size: 3rem;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container p span.typed-text {
+            font-weight: normal;
+            color: #dd7732;
+        }
+
+        .container p span.cursor {
+            display: inline-block;
+            background-color: #ccc;
+            margin-left: 0.1rem;
+            width: 3px;
+            animation: blink 1s infinite;
+        }
+
+        .container p span.cursor.typing {
+            animation: none;
+        }
+
+        @keyframes blink {
+            0%, 49% { background-color: #ccc; }
+            50%, 99% { background-color: transparent; }
+        }
+        
+        /* Shard Card Styling */
+        :root {
+            --primary-color: mediumslateblue;
+        }
+        
+        /* Card Container */
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem; /* Adjust gap for spacing between cards */
+            padding: 2rem;
+            flex-wrap: nowrap;
+        }
+        
+        /* Card Styling */
+        .card {
+            width: 300px;
+            background-color: rgb(16, 16, 16);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px var(--primary-color); /* Subtle shadow effect */
+        }
+        
+        /* Animated Gradient Line on Hover */
+        .card:after {  
+            content: "";
+            position: absolute;
+            left: -1px;
+            top: 65%;
+            width: 3px;  
+            height: 80px;
+            background: var(--hover-gradient);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+        .card:hover:after {
+            top: 15%;
+            opacity: 1;
+        }
+        
+        /* Card Content Styling */
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-position: 50% 50%;
+            background-size: 1.1rem 1.1rem;
+        }
+        
+        .card-content > h1, .card-content > h3, .card-content > p {
+            text-align: center;
+        }
+        
+        .card-content > h1 {
+            font-size: 1.8rem;
+            color: rgb(250, 249, 246);
+        }
+        
+        .card-content > h3 {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+        
+        .card-content > p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -160,6 +298,39 @@
         <div id="blob"></div>
         <div id="blur"></div>
         <h1 data-value="Daniel Ding">Daniel Ding</h1>
+    </section>
+
+    <!-- Section 3: Typing Effect and Shard Cards -->
+    <section id="section3">
+        <div class="container">
+            <p>Coding is <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+        </div>
+    
+        <!-- Shard Cards Container -->
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Valuable Info</h3>
+                    <h1>The worst thing about coding is the dementors</h1>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Valuable Info</h3>
+                    <h1>The worst thing about coding is the dementors</h1>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Valuable Info</h3>
+                    <h1>The worst thing about coding is the dementors</h1>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <script>
@@ -255,6 +426,47 @@
                 iteration += 1 / 3;
             }, 30);
         };
+
+        // Typing Effect Script
+        const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+
+        const textArray = ["hard", "fun", "a journey", "LIFE"];
+        const typingDelay = 200;
+        const erasingDelay = 100;
+        const newTextDelay = 2000;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
+        });
     </script>
 </body>
 </html>
