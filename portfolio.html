@@ -336,24 +336,41 @@
     <script>
         // Scroll snapping logic for sections
         const sections = document.querySelectorAll("section");
-        let currentIndex = 0;
-
+        let currentIndex = 0; // Track the currently visible section
+        let scrollLocked = false; // Flag to lock scrolling during delay
+    
+        // Scroll to a specific section
         const scrollToSection = (index) => {
             sections[index].scrollIntoView({ behavior: "smooth" });
             currentIndex = index;
         };
-
-        window.addEventListener("wheel", (e) => {
+    
+        // Scroll event handler with snapping and locking
+        const handleScroll = (e) => {
+            e.preventDefault(); // Prevent default scroll behavior
+    
+            if (scrollLocked) return; // Exit if scrolling is locked
+            scrollLocked = true;
+    
+            // Detect scroll direction and change the section index
             if (e.deltaY > 0 && currentIndex < sections.length - 1) {
                 scrollToSection(currentIndex + 1);
             } else if (e.deltaY < 0 && currentIndex > 0) {
                 scrollToSection(currentIndex - 1);
             }
-        });
+    
+            // Unlock scrolling after 1.5 seconds
+            setTimeout(() => {
+                scrollLocked = false;
+            }, 1500);
+        };
+    
+        // Attach the scroll event listener
+        window.addEventListener("wheel", handleScroll, { passive: false });
 
         // Image track parallax functionality
         const track = document.getElementById("image-track");
-
+    
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
         
         const handleOnUp = () => {
@@ -387,10 +404,10 @@
         window.onmousedown = handleOnDown;
         window.onmouseup = handleOnUp;
         window.onmousemove = handleOnMove;
-
+    
         // Glowing Blob Effect
         const blob = document.getElementById("blob");
-
+    
         window.onpointermove = event => { 
             const { clientX, clientY } = event;
             
@@ -399,12 +416,12 @@
                 top: `${clientY}px`
             }, { duration: 3000, fill: "forwards" });
         };
-
+    
         // Animated Text Effect on Hover
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
         const h1 = document.querySelector("h1");
-
+    
         h1.onmouseover = event => {  
             let iteration = 0;
             clearInterval(interval);
@@ -426,18 +443,18 @@
                 iteration += 1 / 3;
             }, 30);
         };
-
+    
         // Typing Effect Script
         const typedTextSpan = document.querySelector(".typed-text");
         const cursorSpan = document.querySelector(".cursor");
-
+    
         const textArray = ["hard", "fun", "a journey", "LIFE"];
         const typingDelay = 200;
         const erasingDelay = 100;
         const newTextDelay = 2000;
         let textArrayIndex = 0;
         let charIndex = 0;
-
+    
         function type() {
             if (charIndex < textArray[textArrayIndex].length) {
                 if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
@@ -449,7 +466,7 @@
                 setTimeout(erase, newTextDelay);
             }
         }
-
+    
         function erase() {
             if (charIndex > 0) {
                 if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
@@ -463,10 +480,11 @@
                 setTimeout(type, typingDelay + 1100);
             }
         }
-
+    
         document.addEventListener("DOMContentLoaded", function() {
             if (textArray.length) setTimeout(type, newTextDelay + 250);
         });
     </script>
+
 </body>
 </html>
