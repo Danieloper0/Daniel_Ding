@@ -367,65 +367,87 @@
     
         // Attach the scroll event listener
         window.addEventListener("wheel", handleScroll, { passive: false });
-
+    
         // Image track parallax functionality
         const track = document.getElementById("image-track");
     
-        const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
-        
+        const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
+    
         const handleOnUp = () => {
-            track.dataset.mouseDownAt = "0";  
+            track.dataset.mouseDownAt = "0";
             track.dataset.prevPercentage = track.dataset.percentage;
-        }
-        
-        const handleOnMove = e => {
+        };
+    
+        const handleOnMove = (e) => {
             if (track.dataset.mouseDownAt === "0") return;
-            
+    
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-                  maxDelta = window.innerWidth / 2;
-            
+                maxDelta = window.innerWidth / 2;
+    
             const percentage = (mouseDelta / maxDelta) * -78,
-                  nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
-                  nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-            
+                nextPercentageUnconstrained =
+                    parseFloat(track.dataset.prevPercentage) + percentage,
+                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+    
             track.dataset.percentage = nextPercentage;
-            
-            track.animate({
-                transform: `translate(${nextPercentage}%, -50%)`
-            }, { duration: 1200, fill: "forwards" });
-            
+    
+            track.animate(
+                {
+                    transform: `translate(${nextPercentage}%, -50%)`,
+                },
+                { duration: 1200, fill: "forwards" }
+            );
+    
             for (const image of track.getElementsByClassName("image")) {
-                image.animate({
-                    objectPosition: `${100 + nextPercentage}% center`
-                }, { duration: 1200, fill: "forwards" });
+                image.animate(
+                    {
+                        objectPosition: `${100 + nextPercentage}% center`,
+                    },
+                    { duration: 1200, fill: "forwards" }
+                );
             }
         };
-        
+    
         window.onmousedown = handleOnDown;
         window.onmouseup = handleOnUp;
         window.onmousemove = handleOnMove;
     
-        // Glowing Blob Effect
+        // Glowing Blob Effect Limited to Section 2
         const blob = document.getElementById("blob");
+        const section2 = document.getElementById("section2");
     
-        window.onpointermove = event => { 
+        // Pointer movement limited to Section 2
+        section2.addEventListener("pointermove", (event) => {
             const { clientX, clientY } = event;
-            
-            blob.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 3000, fill: "forwards" });
-        };
+    
+            blob.animate(
+                {
+                    left: `${clientX}px`,
+                    top: `${clientY}px`,
+                },
+                { duration: 3000, fill: "forwards" }
+            );
+        });
+    
+        // Hide the blob when leaving Section 2
+        section2.addEventListener("pointerleave", () => {
+            blob.style.opacity = 0;
+        });
+    
+        // Show the blob when entering Section 2
+        section2.addEventListener("pointerenter", () => {
+            blob.style.opacity = 0.8;
+        });
     
         // Animated Text Effect on Hover
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
         const h1 = document.querySelector("h1");
     
-        h1.onmouseover = event => {  
+        h1.onmouseover = (event) => {
             let iteration = 0;
             clearInterval(interval);
-            
+    
             interval = setInterval(() => {
                 event.target.innerText = event.target.innerText
                     .split("")
@@ -436,8 +458,8 @@
                         return letters[Math.floor(Math.random() * 26)];
                     })
                     .join("");
-                
-                if (iteration >= event.target.dataset.value.length) { 
+    
+                if (iteration >= event.target.dataset.value.length) {
                     clearInterval(interval);
                 }
                 iteration += 1 / 3;
@@ -457,7 +479,8 @@
     
         function type() {
             if (charIndex < textArray[textArrayIndex].length) {
-                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                if (!cursorSpan.classList.contains("typing"))
+                    cursorSpan.classList.add("typing");
                 typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
                 charIndex++;
                 setTimeout(type, typingDelay);
@@ -469,8 +492,12 @@
     
         function erase() {
             if (charIndex > 0) {
-                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                if (!cursorSpan.classList.contains("typing"))
+                    cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(
+                    0,
+                    charIndex - 1
+                );
                 charIndex--;
                 setTimeout(erase, erasingDelay);
             } else {
@@ -481,10 +508,11 @@
             }
         }
     
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             if (textArray.length) setTimeout(type, newTextDelay + 250);
         });
     </script>
+
 
 </body>
 </html>
