@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ding | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Didot&family=Poppins:wght@300;400;600&family=Space+Mono&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
@@ -42,18 +45,21 @@
             background-color: white;
             z-index: 10;
         }
+
         #crosshair::before,
         #crosshair::after {
             content: "";
             position: absolute;
             background-color: white;
         }
+
         #crosshair::before {
             width: 30px;
             height: 1px;
             left: -14px;
             top: 0;
         }
+
         #crosshair::after {
             width: 1px;
             height: 30px;
@@ -68,10 +74,11 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(0%, -50%); 
+            transform: translate(0%, -50%);
             user-select: none;
         }
-        #image-track > .image {
+
+        #image-track>.image {
             width: 40vmin;
             height: 56vmin;
             object-fit: cover;
@@ -83,9 +90,11 @@
             from {
                 rotate: 0deg;
             }
+
             50% {
                 scale: 1 1.5;
             }
+
             to {
                 rotate: 360deg;
             }
@@ -173,24 +182,33 @@
         }
 
         @keyframes blink {
-            0%, 49% { background-color: #ccc; }
-            50%, 99% { background-color: transparent; }
+
+            0%,
+            49% {
+                background-color: #ccc;
+            }
+
+            50%,
+            99% {
+                background-color: transparent;
+            }
         }
-        
+
         /* Shard Card Styling */
         :root {
             --primary-color: mediumslateblue;
         }
-        
+
         /* Card Container */
         .card-container {
             display: flex;
             justify-content: space-between;
-            gap: 1.5rem; /* Adjust gap for spacing between cards */
+            gap: 1.5rem;
+            /* Adjust gap for spacing between cards */
             padding: 2rem;
             flex-wrap: nowrap;
         }
-        
+
         /* Card Styling */
         .card {
             width: 300px;
@@ -202,28 +220,31 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 15px var(--primary-color); /* Subtle shadow effect */
+            box-shadow: 0 0 15px var(--primary-color);
+            /* Subtle shadow effect */
         }
-        
+
         /* Animated Gradient Line on Hover */
-        .card:after {  
+        .card:after {
             content: "";
             position: absolute;
             left: -1px;
             top: 65%;
-            width: 3px;  
+            width: 3px;
             height: 80px;
             background: var(--hover-gradient);
             opacity: 0;
             transition: all 0.6s ease;
         }
+
         .card:hover:after {
             top: 15%;
             opacity: 1;
         }
-        
+
         /* Card Content Styling */
         .card-content {
             display: flex;
@@ -237,59 +258,609 @@
             background-position: 50% 50%;
             background-size: 1.1rem 1.1rem;
         }
-        
-        .card-content > h1, .card-content > h3, .card-content > p {
+
+        .card-content>h1,
+        .card-content>h3,
+        .card-content>p {
             text-align: center;
         }
-        
-        .card-content > h1 {
+
+        .card-content>h1 {
             font-size: 1.8rem;
             color: rgb(250, 249, 246);
         }
-        
-        .card-content > h3 {
+
+        .card-content>h3 {
             font-size: 0.8rem;
             color: var(--primary-color);
             text-transform: uppercase;
         }
-        
-        .card-content > p {
+
+        .card-content>p {
             font-size: 1rem;
             line-height: 1.5rem;
             color: rgba(255, 255, 255, 0.75);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 900px) {
             .card-container {
                 flex-direction: column;
                 align-items: center;
             }
-        
+
             .card {
                 width: 100%;
                 max-width: 300px;
             }
         }
 
+        @font-face {
+            font-family: 'PP Neue Corp Tight';
+            src: url('https://cdn.prod.website-files.com/673af51dea86ab95d124c3ee/673b0f5784f7060c0ac05534_PPNeueCorp-TightUltrabold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .osmo-ui {
+            z-index: 0;
+            pointer-events: none;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .nav-row {
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            display: flex;
+        }
+
+        .nav-logo-row {
+            pointer-events: auto;
+            justify-content: space-between;
+            align-items: center;
+            width: 13em;
+            display: flex;
+        }
+
+        .nav-logo__wordmark {
+            width: 4em;
+        }
+
+        .nav-logo__icon {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .container {
+            z-index: 1;
+            max-width: var(--size-container);
+            padding-left: var(--container-padding);
+            padding-right: var(--container-padding);
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .container.is--full {
+            max-width: 100%;
+        }
+
+        .nav-row__right {
+            grid-column-gap: .625rem;
+            grid-row-gap: .625rem;
+            pointer-events: auto;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
+        }
+
+        .header {
+            z-index: 110;
+            padding-top: var(--gap);
+            position: fixed;
+            inset: 0% 0% auto;
+        }
+
+        .website-link {
+            white-space: nowrap;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .website-link.is--alt {
+            grid-column-gap: .25em;
+            grid-row-gap: .25em;
+            justify-content: flex-start;
+            align-items: center;
+            height: 1.5em;
+            display: flex;
+        }
+
+        .inline-link__p {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin: 0px;
+        }
+
+        .cloneable {
+            padding: var(--section-padding) var(--container-padding);
+            justify-content: center;
+            align-items: center;
+            min-height: 100svh;
+            display: flex;
+            position: relative;
+            --menu-padding: 2em;
+        }
+
+        .nav {
+            z-index: 100;
+            width: 100%;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: fixed;
+            inset: 0%;
+        }
+
+        .overlay {
+            z-index: 0;
+            cursor: pointer;
+            background-color: #b3b3b328;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0%;
+        }
+
+        .menu {
+            padding-bottom: var(--menu-padding);
+            grid-column-gap: 5em;
+            grid-row-gap: 5em;
+            padding-top: calc(3 * var(--menu-padding));
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 35em;
+            height: 100%;
+            margin-left: auto;
+            position: relative;
+            overflow: auto;
+        }
+
+        .menu-bg {
+            z-index: 0;
+            position: absolute;
+            inset: 0%;
+        }
+
+        .menu-inner {
+            z-index: 1;
+            grid-column-gap: 5em;
+            grid-row-gap: 5em;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100%;
+            display: flex;
+            position: relative;
+            overflow: auto;
+        }
+
+        .bg-panel {
+            z-index: 0;
+            background-color: white;
+            border-top-left-radius: 1.25em;
+            border-bottom-left-radius: 1.25em;
+            position: absolute;
+            inset: 0%;
+        }
+
+        .bg-panel.first {
+            background-color: red;
+        }
+
+        .bg-panel.second {
+            background-color: rgb(112, 102, 102);
+        }
+
+        .menu-list {
+            flex-flow: column;
+            width: 100%;
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .menu-list-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-link-heading {
+            text-shadow: 0px 1em 0px var(--color-neutral-200);
+        }
+
+        .menu-link {
+            padding-top: .75em;
+            padding-bottom: .75em;
+            padding-left: var(--menu-padding);
+            grid-column-gap: .75em;
+            grid-row-gap: .75em;
+            width: 100%;
+            text-decoration: none;
+            display: flex;
+        }
+
+        .menu-link-heading {
+            z-index: 1;
+            text-transform: uppercase;
+            font-family: PP Neue Corp Tight, Arial, sans-serif;
+            font-size: 5.625em;
+            font-weight: 700;
+            line-height: .75;
+            transition: transform .55s cubic-bezier(.65, .05, 0, 1);
+            position: relative;
+            color: black;
+        }
+
+        .eyebrow {
+            z-index: 1;
+            color: rgb(255, 94, 0);
+            text-transform: uppercase;
+            font-family: RM Mono, Arial, sans-serif;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .menu-link-bg {
+            z-index: 0;
+            background-color: rgb(26, 25, 25);
+            transform-origin: 50% 100%;
+            transform-style: preserve-3d;
+            transition: transform .55s cubic-bezier(.65, .05, 0, 1);
+            position: absolute;
+            inset: 0%;
+            transform: scale3d(1, 0, 1);
+            color: white;
+        }
+
+        .menu-details {
+            padding-left: var(--menu-padding);
+            grid-column-gap: 1.25em;
+            grid-row-gap: 1.25em;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            display: flex;
+        }
+
+        .p-small {
+            font-size: .875em;
+            font-family: Arial, Helvetica;
+        }
+
+        .socials-row {
+            grid-column-gap: 1.5em;
+            grid-row-gap: 1.5em;
+            flex-flow: row;
+            display: flex;
+        }
+
+        .p-large {
+            font-size: 1.125em;
+            font-family: Arial, Helvetica;
+        }
+
+        .text-link {
+            text-decoration: none;
+            position: relative;
+        }
+
+        .menu-button {
+            grid-column-gap: .625em;
+            grid-row-gap: .625em;
+            justify-content: flex-end;
+            align-items: center;
+            margin: -1em;
+            padding: 1em;
+            display: flex;
+            border: none;
+        }
+
+        .menu-button-icon {
+            width: 1em;
+            height: 1em;
+        }
+
+        .menu-button-text {
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            height: 1.125em;
+            display: flex;
+            color: white;
+        }
+
+        .icon-wrap {
+            transition: transform .4s cubic-bezier(.65, .05, 0, 1);
+        }
+
+        @media (hover:hover) {
+
+            /* Menu toggle button*/
+            .menu-button:hover .icon-wrap {
+                transform: rotate(90deg);
+            }
+
+            /* Menu Large Links */
+            .menu-link:hover .menu-link-heading {
+                transform: translate(0px, -1em);
+                transition-delay: 0.1s;
+            }
+
+            .menu-link:hover .menu-link-bg {
+                transform: scale(1, 1);
+                color: white;
+            }
+
+            /* Menu Smaller Links */
+            .text-link::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 1px;
+                background: var(--color-primary);
+                transform-origin: right center;
+                transform: scale(0, 1);
+                transition: transform 0.4s var(--cubic-default)
+            }
+
+            .text-link:hover::after {
+                transform-origin: left center;
+                transform: scale(1, 1);
+            }
+
+        }
+
+        .osmo-icon-svg {
+            width: 8em;
+        }
+
+        @media screen and (max-width: 767px) {
+            .cloneable {
+                --menu-padding: 1em;
+            }
+
+            .nav-logo-row {
+                grid-column-gap: 2.5em;
+                grid-row-gap: 2.5em;
+                width: auto;
+            }
+
+            .nav-row__right {
+                grid-column-gap: 0rem;
+                grid-row-gap: 0rem;
+            }
+
+            .cloneable-title {
+                pointer-events: none;
+                width: calc(100% - 5.25em);
+                padding-left: 1em;
+                position: absolute;
+                overflow: hidden;
+            }
+
+            .cloneable-title__nr,
+            .cloneable-title__h1 {
+                font-size: .875em;
+            }
+
+            .clone-in-webflow {
+                justify-content: flex-end;
+                width: 100%;
+                margin-right: 0;
+                padding-left: .75em;
+            }
+
+            .clone-in-webflow__p {
+                display: none;
+            }
+
+            .cloneable-title__gradient,
+            .osmo-ui__bg {
+                display: block;
+            }
+
+            .menu {
+                padding-top: calc(6 * var(--menu-padding));
+                width: 100%;
+            }
+
+            .bg-panel {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+
+            .menu-list-item {
+                height: 4.5em;
+            }
+
+            .menu-link-heading {
+                font-size: 4em;
+            }
+
+            .socials-row {
+                grid-column-gap: 1em;
+                grid-row-gap: 1em;
+            }
+
+            .p-large.text-link {
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (max-width: 479px) {
+            .menu {
+                padding-top: calc(7 * var(--menu-padding));
+                padding-bottom: calc(2 * var(--menu-padding));
+            }
+        }
+
+        a {
+            color: inherit; 
+            text-decoration: none; 
+        }
+
+        a:visited {
+            color: inherit; 
+        }
 
     </style>
 </head>
+
 <body>
+    <div class="osmo-ui">
+        <header class="header">
+            <div class="container is--full">
+                <div class="nav-row__right"><button role="button" data-menu-toggle="" class="menu-button">
+                        <div class="menu-button-text">
+                            <p class="p-large">Menu</p>
+                            <p class="p-large">Close</p>
+                        </div>
+                        <div class="icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16"
+                                fill="none" class="menu-button-icon">
+                                <path d="M7.33333 16L7.33333 -3.2055e-07L8.66667 -3.78832e-07L8.66667 16L7.33333 16Z"
+                                    fill="currentColor"></path>
+                                <path d="M16 8.66667L-2.62269e-07 8.66667L-3.78832e-07 7.33333L16 7.33333L16 8.66667Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M6 7.33333L7.33333 7.33333L7.33333 6C7.33333 6.73637 6.73638 7.33333 6 7.33333Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 7.33333L8.66667 7.33333L8.66667 6C8.66667 6.73638 9.26362 7.33333 10 7.33333Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M6 8.66667L7.33333 8.66667L7.33333 10C7.33333 9.26362 6.73638 8.66667 6 8.66667Z"
+                                    fill="currentColor"></path>
+                                <path
+                                    d="M10 8.66667L8.66667 8.66667L8.66667 10C8.66667 9.26362 9.26362 8.66667 10 8.66667Z"
+                                    fill="currentColor"></path>
+                            </svg></div>
+                    </button></div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="cloneable">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 160 160" fill="none" class="osmo-icon-svg">
+            <path
+                d="M94.8284 53.8578C92.3086 56.3776 88 54.593 88 51.0294V0H72V59.9999C72 66.6273 66.6274 71.9999 60 71.9999H0V87.9999H51.0294C54.5931 87.9999 56.3777 92.3085 53.8579 94.8283L18.3431 130.343L29.6569 141.657L65.1717 106.142C67.684 103.63 71.9745 105.396 72 108.939V160L88.0001 160L88 99.9999C88 93.3725 93.3726 87.9999 100 87.9999H160V71.9999H108.939C105.407 71.9745 103.64 67.7091 106.12 65.1938L106.142 65.1716L141.657 29.6568L130.343 18.3432L94.8284 53.8578Z"
+                fill="currentColor"></path>
+        </svg>
+        <div data-nav="closed" class="nav">
+            <div data-menu-toggle="" class="overlay"></div>
+            <nav class="menu">
+                <div class="menu-bg">
+                    <div class="bg-panel first"></div>
+                    <div class="bg-panel second"></div>
+                    <div class="bg-panel"></div>
+                </div>
+                <div class="menu-inner">
+                    <ul class="menu-list">
+                        <li class="menu-list-item">
+                            <a href="#" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">About us</p>
+                                <p class="eyebrow">01</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="#" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Our work</p>
+                                <p class="eyebrow">02</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="#" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Services</p>
+                                <p class="eyebrow">03</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="#" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Blog</p>
+                                <p class="eyebrow">04</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="#" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Contact us</p>
+                                <p class="eyebrow">05</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="menu-details">
+                        <p data-menu-fade="" class="p-small">Socials</p>
+                        <div class="socials-row">
+                            <a data-menu-fade="" href="#" class="p-large text-link">Instagram</a>
+                            <a data-menu-fade="" href="#" class="p-large text-link">LinkedIn</a>
+                            <a data-menu-fade="" href="#" class="p-large text-link">X/Twitter</a>
+                            <a data-menu-fade="" href="#" class="p-large text-link">Awwwards</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
 
     <!-- Section 1: Image Track with Parallax -->
     <section id="section1">
         <div id="crosshair"></div>
         <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
             <!-- Images for the parallax effect -->
-            <img class="image" src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?q=80&w=3254&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1684965344594-98ffe1efb1b6?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1527515047028-10b18ca90f24?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1476979735039-2fdea9e9e407?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3" draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?q=80&w=3254&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1455894127589-22f75500213a?q=80&w=3165&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1684965344594-98ffe1efb1b6?q=80&w=3250&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1527515047028-10b18ca90f24?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1476979735039-2fdea9e9e407?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
+            <img class="image"
+                src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3"
+                draggable="false" />
         </div>
     </section>
 
@@ -305,28 +876,31 @@
         <div class="container">
             <p>Coding is <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
         </div>
-    
+
         <!-- Shard Cards Container -->
         <div class="card-container">
             <div class="card">
                 <div class="card-content">
                     <h3>Valuable Info</h3>
                     <h1>The worst thing about coding is the dementors</h1>
-                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have
+                        a dementor appear and suck my soul out.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
                     <h3>Valuable Info</h3>
                     <h1>The worst thing about coding is the dementors</h1>
-                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have
+                        a dementor appear and suck my soul out.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
                     <h3>Valuable Info</h3>
                     <h1>The worst thing about coding is the dementors</h1>
-                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have a dementor appear and suck my soul out.</p>
+                    <p>I can't stand when I have spent the last 47 minutes adjusting the rgb on my gradient only to have
+                        a dementor appear and suck my soul out.</p>
                 </div>
             </div>
         </div>
@@ -334,70 +908,144 @@
     </section>
 
     <script>
+        gsap.registerPlugin(CustomEase);
+
+        gsap.set(".nav", { display: "none" })
+
+        CustomEase.create("main", "0.65, 0.01, 0.05, 0.99");
+
+        gsap.defaults({
+            ease: "main",
+            duration: 0.7
+        })
+
+        function initMenu() {
+            let navWrap = document.querySelector(".nav")
+            let state = navWrap.getAttribute("data-nav")
+            let overlay = navWrap.querySelector(".overlay")
+            let menu = navWrap.querySelector(".menu")
+            let bgPanels = navWrap.querySelectorAll(".bg-panel")
+            let menuToggles = document.querySelectorAll("[data-menu-toggle]")
+            let menuLinks = navWrap.querySelectorAll(".menu-link")
+            let fadeTargets = navWrap.querySelectorAll("[data-menu-fade]")
+            let menuButton = document.querySelector(".menu-button")
+            let menuButtonTexts = menuButton.querySelectorAll("p")
+            let menuButtonIcon = menuButton.querySelector(".menu-button-icon")
+
+            let tl = gsap.timeline()
+
+            const openNav = () => {
+                navWrap.setAttribute("data-nav", "open")
+
+                tl.clear()
+                    .set(navWrap, { display: "block" })
+                    .set(menu, { xPercent: 0 }, "<")
+                    .fromTo(menuButtonTexts, { yPercent: 0 }, { yPercent: -100, stagger: 0.2 })
+                    .fromTo(menuButtonIcon, { rotate: 0 }, { rotate: 315 }, "<")
+                    .fromTo(overlay, { autoAlpha: 0 }, { autoAlpha: 1 }, "<")
+                    .fromTo(bgPanels, { xPercent: 101 }, { xPercent: 0, stagger: 0.12, duration: 0.575 }, "<")
+                    .fromTo(menuLinks, { yPercent: 140, rotate: 10 }, { yPercent: 0, rotate: 0, stagger: 0.05 }, "<+=0.35")
+                    .fromTo(fadeTargets, { autoAlpha: 0, yPercent: 50 }, { autoAlpha: 1, yPercent: 0, stagger: 0.04 }, "<+=0.2")
+            }
+
+            const closeNav = () => {
+                navWrap.setAttribute("data-nav", "closed")
+
+                tl.clear()
+                    .to(overlay, { autoAlpha: 0 })
+                    .to(menu, { xPercent: 120 }, "<")
+                    .to(menuButtonTexts, { yPercent: 0 }, "<")
+                    .to(menuButtonIcon, { rotate: 0 }, "<")
+                    .set(navWrap, { display: "none" })
+            }
+
+            // Toggle menu open / close depending on its current state
+            menuToggles.forEach((toggle) => {
+                toggle.addEventListener("click", () => {
+                    state = navWrap.getAttribute("data-nav");
+                    if (state === "open") {
+                        closeNav();
+                    } else {
+                        openNav();
+                    }
+                });
+            });
+
+            // If menu is open, you can close it using the "escape" key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && navWrap.getAttribute("data-nav") === "open") {
+                    closeNav();
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initMenu()
+        })
         // Scroll snapping logic for sections
         const sections = document.querySelectorAll("section");
         let currentIndex = 0; // Track the currently visible section
         let scrollLocked = false; // Flag to lock scrolling during delay
-    
+
         // Scroll to a specific section
         const scrollToSection = (index) => {
             sections[index].scrollIntoView({ behavior: "smooth" });
             currentIndex = index;
         };
-    
+
         // Scroll event handler with snapping and locking
         const handleScroll = (e) => {
             e.preventDefault(); // Prevent default scroll behavior
-    
+
             if (scrollLocked) return; // Exit if scrolling is locked
             scrollLocked = true;
-    
+
             // Detect scroll direction and change the section index
             if (e.deltaY > 0 && currentIndex < sections.length - 1) {
                 scrollToSection(currentIndex + 1);
             } else if (e.deltaY < 0 && currentIndex > 0) {
                 scrollToSection(currentIndex - 1);
             }
-    
+
             // Unlock scrolling after 1.5 seconds
             setTimeout(() => {
                 scrollLocked = false;
             }, 1500);
         };
-    
+
         // Attach the scroll event listener
         window.addEventListener("wheel", handleScroll, { passive: false });
-    
+
         // Image track parallax functionality
         const track = document.getElementById("image-track");
-    
+
         const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
-    
+
         const handleOnUp = () => {
             track.dataset.mouseDownAt = "0";
             track.dataset.prevPercentage = track.dataset.percentage;
         };
-    
+
         const handleOnMove = (e) => {
             if (track.dataset.mouseDownAt === "0") return;
-    
+
             const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
                 maxDelta = window.innerWidth / 2;
-    
+
             const percentage = (mouseDelta / maxDelta) * -78,
                 nextPercentageUnconstrained =
                     parseFloat(track.dataset.prevPercentage) + percentage,
                 nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
-    
+
             track.dataset.percentage = nextPercentage;
-    
+
             track.animate(
                 {
                     transform: `translate(${nextPercentage}%, -50%)`,
                 },
                 { duration: 1200, fill: "forwards" }
             );
-    
+
             for (const image of track.getElementsByClassName("image")) {
                 image.animate(
                     {
@@ -407,19 +1055,19 @@
                 );
             }
         };
-    
+
         window.onmousedown = handleOnDown;
         window.onmouseup = handleOnUp;
         window.onmousemove = handleOnMove;
-    
+
         // Glowing Blob Effect Limited to Section 2
         const blob = document.getElementById("blob");
         const section2 = document.getElementById("section2");
-    
+
         // Pointer movement limited to Section 2
         section2.addEventListener("pointermove", (event) => {
             const { clientX, clientY } = event;
-    
+
             blob.animate(
                 {
                     left: `${clientX}px`,
@@ -428,26 +1076,26 @@
                 { duration: 3000, fill: "forwards" }
             );
         });
-    
+
         // Hide the blob when leaving Section 2
         section2.addEventListener("pointerleave", () => {
             blob.style.opacity = 0;
         });
-    
+
         // Show the blob when entering Section 2
         section2.addEventListener("pointerenter", () => {
             blob.style.opacity = 0.8;
         });
-    
+
         // Animated Text Effect on Hover
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         let interval = null;
         const h1 = document.querySelector("h1");
-    
+
         h1.onmouseover = (event) => {
             let iteration = 0;
             clearInterval(interval);
-    
+
             interval = setInterval(() => {
                 event.target.innerText = event.target.innerText
                     .split("")
@@ -458,25 +1106,25 @@
                         return letters[Math.floor(Math.random() * 26)];
                     })
                     .join("");
-    
+
                 if (iteration >= event.target.dataset.value.length) {
                     clearInterval(interval);
                 }
                 iteration += 1 / 3;
             }, 30);
         };
-    
+
         // Typing Effect Script
         const typedTextSpan = document.querySelector(".typed-text");
         const cursorSpan = document.querySelector(".cursor");
-    
+
         const textArray = ["hard", "fun", "a journey", "LIFE"];
         const typingDelay = 200;
         const erasingDelay = 100;
         const newTextDelay = 2000;
         let textArrayIndex = 0;
         let charIndex = 0;
-    
+
         function type() {
             if (charIndex < textArray[textArrayIndex].length) {
                 if (!cursorSpan.classList.contains("typing"))
@@ -489,7 +1137,7 @@
                 setTimeout(erase, newTextDelay);
             }
         }
-    
+
         function erase() {
             if (charIndex > 0) {
                 if (!cursorSpan.classList.contains("typing"))
@@ -507,7 +1155,7 @@
                 setTimeout(type, typingDelay + 1100);
             }
         }
-    
+
         document.addEventListener("DOMContentLoaded", function () {
             if (textArray.length) setTimeout(type, newTextDelay + 250);
         });
@@ -515,4 +1163,5 @@
 
 
 </body>
+
 </html>
