@@ -1,16 +1,15 @@
 //OBFUSCATED CODE. Hehehe
 //U CANT steal it OR run it in any way. :) 
+//The previous code isnt related in any way anyway lol get out
 
 
-
-_, Protected_by_MoonSecV2, Discord = "discord.gg/gQEH2uZxUk", nil, nil
 (function()
     _msec = (function(e, n, l)
         local S = n[(-0x2c + 99)]
         local D = l[e[(0x12c24 / 114)]][e[(0x32a + -19)]]
         local m =
             (0x100 / 64) /
-            ((0xda4 / (((123 + -0x62) + -(#"MoonsecV2 deobfuscator 2020 free 100 percent")) + 0xd5)) +
+            ((0xda4 / (((123 + -0x62) + -(#"deobfuscator 2020 free 100 percent")) + 0xd5)) +
                 -(#[[Fucking Retarted]]))
         local r = ((((0x91c / 44) + -0x5f) + -(#"elbicho")) + 51) - (57 - 0x38)
         local L = l[e[(0x197 - 216)]][e[(275 + -(#{(function()
